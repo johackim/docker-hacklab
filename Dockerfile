@@ -7,7 +7,8 @@ RUN apt-get update --fix-missing
 RUN apt-get install -y vim curl silversearcher-ag apt-file git
 
 # Information-Gathering
-RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry googler knockpy
+RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy
+RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 
 # Reverse Engineering
 RUN apt-get install -y set
