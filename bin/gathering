@@ -1,0 +1,71 @@
+#!/bin/bash
+
+URL=$1
+
+if [[ -z $URL ]]; then
+    echo "Url missing."
+    exit 1
+fi
+
+regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+if echo "$URL"|grep -vEq "$regex"; then
+    echo "Not valid url."
+    exit 2
+fi
+
+DOMAIN=$(echo $URL | awk -F/ '{print $3}')
+IP=$(dig +short $DOMAIN | sed -n 1p)
+LOCALISATION=$(curl -s ipinfo.io/$IP/loc)
+
+echo "Search informations $DOMAIN..."
+
+echo "[+] IP:"
+echo "-------"
+echo $IP
+echo -e "\n"
+
+echo "[+] Localisation:"
+echo "-----------------"
+echo $LOCALISATION
+echo "https://www.google.com/maps?q=$LOCALISATION"
+echo -e "\n"
+
+echo "[+] Open ports:"
+echo "---------------"
+nmap -v -sT $DOMAIN|grep "Discovered open port"|awk {'print $4" : "$6'}
+echo -e "\n"
+
+echo "[+] OS:"
+echo "---------"
+nmap -O $DOMAIN | grep -i "aggressive" | cut -d ':' -f2 | sed -e 's/^[[:space:]]//'
+echo -e "\n"
+
+echo "[+] Sensitive informations:"
+echo "---------------------------"
+
+echo -e '\nDirectory listing vulnerabilities:'
+CMD=$(echo -ne '\n' | googler "site:$DOMAIN intitle:index.of" | grep http)
+[[ -n $CMD ]] && echo $CMD | sed 's/ /\n/g' || echo "Not found"
+
+echo -e '\nDatabase files exposed:'
+CMD=$(echo -ne '\n' | googler "site:$DOMAIN ext:sql | ext:dbf | ext:mdb" | grep http)
+[[ -n $CMD ]] && echo $CMD | sed 's/ /\n/g' || echo "Not found"
+
+echo -e '\nLogin pages:'
+CMD=$(echo -ne '\n' | googler "site:$DOMAIN inurl:login" | grep http)
+[[ -n $CMD ]] && echo $CMD | sed 's/ /\n/g' || echo "Not found"
+
+echo -e '\nPublicly exposed documents'
+CMD=$(echo -ne '\n' | googler "site:$DOMAIN ext:doc | ext:docx | ext:odt | ext:pdf | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv" | grep http)
+[[ -n $CMD ]] && echo $CMD | sed 's/ /\n/g' || echo "Not found"
+
+echo "[+] Emails found:"
+echo "-----------------"
+theharvester -d $DOMAIN -l 500 -b all | awk '/Emails/{flag=1;next}/Hosts/{flag=0}flag' | grep -v "\-\-\-"
+echo -e "\n"
+
+echo "[+] Subdomains:"
+echo "---------------"
+knockpy $DOMAIN|awk '/Domain Name/,/Found/'|grep "\."
+echo -e "\n"
+
