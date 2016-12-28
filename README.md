@@ -8,7 +8,7 @@ Quick Start
 
 ```bash
 # Run Hacklab
-docker run -d --name hacklab --net=host -it jcherqui/docker-hacklab
+docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
 
 # Vuln Scanners
 docker run -d --name nessus -p 8834:8834 infoslack/nessus
