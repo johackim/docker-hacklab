@@ -10,6 +10,7 @@ RUN echo 'hacklab' > /etc/hostname
 # Information-Gathering
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
+COPY bin/gathering /usr/local/bin/gathering
 
 # Reverse Engineering
 RUN apt-get install -y set
@@ -36,4 +37,3 @@ RUN apt-get install -y httrack
 RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/jcherqui/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
 RUN apt-get install t50
 
-COPY bin/gathering /usr/local/bin/
