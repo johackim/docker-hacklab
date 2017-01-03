@@ -24,7 +24,7 @@ RUN apt-get install -y mitmproxy dsniff
 RUN apt-get install -y hydra
 
 # Web Scanner
-RUN apt-get install -y nikto wpscan wapiti
+RUN apt-get install -y nikto wpscan wapiti w3af-console
 
 # SQL Injection
 RUN apt-get install -y sqlmap themole
