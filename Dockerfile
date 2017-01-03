@@ -5,7 +5,6 @@ ENV INITRD No
 
 RUN apt-get update --fix-missing
 RUN apt-get install -y vim curl silversearcher-ag apt-file git
-RUN echo 'hacklab' > /etc/hostname
 
 # Information-Gathering
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy
