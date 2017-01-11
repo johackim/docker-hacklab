@@ -26,6 +26,11 @@ Cheat Sheet
 
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
 
+Autopwn
+---
+
+https://github.com/ngalongc/AutoLocalPrivilegeEscalation
+
 Links
 ---
 
@@ -38,6 +43,7 @@ Links
 - https://github.com/Hack-with-Github/Awesome-Hacking
 - https://github.com/sindresorhus/awesome#security
 - https://github.com/gchq/CyberChef
+- https://hackademics.fr
 
 License
 ---
