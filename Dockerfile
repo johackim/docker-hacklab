@@ -20,8 +20,8 @@ RUN apt-get install -y metasploit-framework
 # MITM / Sniffing
 RUN apt-get install -y mitmproxy dsniff
 
-# Bruteforce
-RUN apt-get install -y hydra
+# Crack password
+RUN apt-get install -y hydra john
 
 # Web Scanner
 RUN apt-get install -y nikto wpscan wapiti w3af-console

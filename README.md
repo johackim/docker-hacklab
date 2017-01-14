@@ -31,6 +31,12 @@ Autopwn
 
 https://github.com/ngalongc/AutoLocalPrivilegeEscalation
 
+Channels youtube
+---
+
+https://www.youtube.com/user/DEFCONConference/videos
+https://www.youtube.com/user/BlackHatOfficialYT/videos
+
 Links
 ---
 
