@@ -20,7 +20,6 @@ RUN apt-get install -y mitmproxy dsniff
 RUN apt-get install -y hydra john
 
 # Web Scanner
-RUN apt-get update --fix-missing
 RUN apt-get install -y nikto wpscan wapiti
 # RUN apt-get install -y w3af
 
