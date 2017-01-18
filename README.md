@@ -49,6 +49,8 @@ set LPORT <port>
 exploit -j
 ```
 
+https://android.fallible.co/
+
 NMAP
 ---
 
