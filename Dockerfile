@@ -15,7 +15,7 @@ COPY bin/gathering /usr/local/bin/gathering
 RUN apt-get install -y set
 
 # Pentest Framework
-RUN apt-get install -y metasploit-framework
+RUN apt-get install -y metasploit-framework websploit
 
 # MITM / Sniffing
 RUN apt-get install -y mitmproxy dsniff
@@ -37,6 +37,9 @@ RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/jcherqui/
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 RUN apt-get install t50
 
-## Kickthemout
+# Kickthemout
 RUN apt-get install -y python-pip
 RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
+
+# NMAP vulscan
+RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
