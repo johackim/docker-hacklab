@@ -42,7 +42,7 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/ki
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
 # Footprinting / Information-Gathering
-RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy
+RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN cd /root && \
     git clone https://github.com/1N3/Sn1per.git && \
     cd ~/Sn1per && \
