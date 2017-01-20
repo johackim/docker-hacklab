@@ -1,0 +1,11 @@
+#!/bin/bash
+
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -F
+iptables -F -t mangle
+iptables -F -t nat
+iptables -X
+iptables -X -t mangle
+iptables -X -t nat
