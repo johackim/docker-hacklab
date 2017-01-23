@@ -65,28 +65,27 @@ nmap -sV  –script=http-sql-injection <host> # Test injection SQL
 TOP Channels youtube
 ---
 
-https://www.youtube.com/user/Hak5Darren/videos
-https://www.youtube.com/user/DEFCONConference/videos
-https://www.youtube.com/user/BlackHatOfficialYT/videos
-https://www.youtube.com/user/JackkTutorials/videos
-https://www.youtube.com/channel/UCO51Z4c1R8EPHZioGwgBmDw/videos
-https://www.youtube.com/playlist?list=PLkRo97mCIn9lgvE7AskNsmwJVOlJX2zaI
-https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
-https://www.youtube.com/user/gaytony10/playlists
-https://www.youtube.com/user/bhargavtandel/videos
+- https://www.youtube.com/user/Hak5Darren/videos
+- https://www.youtube.com/user/DEFCONConference/videos
+- https://www.youtube.com/user/BlackHatOfficialYT/videos
+- https://www.youtube.com/user/JackkTutorials/videos
+- https://www.youtube.com/channel/UCO51Z4c1R8EPHZioGwgBmDw/videos
+- https://www.youtube.com/playlist?list=PLkRo97mCIn9lgvE7AskNsmwJVOlJX2zaI
+- https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
+- https://www.youtube.com/user/gaytony10/playlists
+- https://www.youtube.com/user/bhargavtandel/videos
 
 Links
 ---
 
-- https://www.exploit-db.com/
+- https://github.com/enaqx/awesome-pentest
+- https://github.com/Hack-with-Github/Awesome-Hacking
+- https://github.com/sindresorhus/awesome#security
+- https://penetration-testing.zeef.com/jeroen.rijken
 - http://sectools.org/
 - http://pwnwiki.io/
 - https://www.cybrary.it/
 - http://null-byte.wonderhowto.com/
-- https://github.com/enaqx/awesome-pentest
-- https://github.com/Hack-with-Github/Awesome-Hacking
-- https://github.com/sindresorhus/awesome#security
-- https://github.com/gchq/CyberChef
 - https://hackademics.fr
 
 License
