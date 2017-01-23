@@ -15,7 +15,7 @@ RUN apt-get install -y metasploit-framework websploit
 
 # MITM / Sniffing
 COPY bin/empty /usr/local/bin/empty
-RUN apt-get install -y mitmproxy dsniff
+RUN apt-get install -y mitmproxy dsniff mitmf
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
 
 # Crack password
