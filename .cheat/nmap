@@ -1,0 +1,18 @@
+# Find subdomains of a website
+nmap -Pn --script=dns-brute <host> 
+
+# Find mysql version
+nmap -Pn --script=mysql-info <host> 
+
+# Display directory structure
+nmap -Pn --script=http-sitenap-generator <host> 
+
+# Display vuln
+nmap -sV --script=vulscan <host>
+nmap -sV --script-args vulnscandb=exploit <host>
+
+# Search on xssed.com if XSS vulnerability
+nmap -Pn --script=http-xssed <host> # Search on xssed.com if XSS vulnerability
+
+# Test injection SQL
+nmap -sV --script=http-sql-injection <host> # Test injection SQL
