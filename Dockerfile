@@ -69,6 +69,8 @@ RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-j
 RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
 RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
 RUN chmod +x /opt/TheFatRat/fatrat
+RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
+RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
