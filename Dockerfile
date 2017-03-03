@@ -12,7 +12,7 @@ RUN apt-file update
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
 RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
-RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" >> /etc/motd && echo -e >> /etc/motd
+RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
 # Pentest Framework
 RUN apt-get install -y metasploit-framework websploit
@@ -67,7 +67,7 @@ RUN apt-get install -y apktool set
 # Automated Backdoor
 RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign
 RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
-RUN echo -e "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
+RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
 RUN chmod +x /opt/TheFatRat/fatrat
 
 # Search exploit
