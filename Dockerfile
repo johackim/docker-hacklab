@@ -2,10 +2,21 @@ FROM kalilinux/kali-linux-docker
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
-ENV LANG en_US.UTF-8
 
+# Packages
 RUN echo 'deb http://old.kali.org/kali sana main non-free contrib' >> /etc/apt/sources.list
 RUN apt-get update --fix-missing
+
+# Locale
+RUN apt-get install -y locales
+RUN sed -i -e 's/\# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+RUN locale-gen
+
+# Utils
 RUN apt-get install -y vim curl silversearcher-ag apt-file git
 RUN apt-file update
 
