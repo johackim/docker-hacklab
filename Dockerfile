@@ -23,7 +23,7 @@ RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
-RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
 RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
 RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
@@ -111,3 +111,4 @@ RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
 
 ADD wordlists /usr/share/
+WORKDIR /root
