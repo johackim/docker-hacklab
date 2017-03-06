@@ -17,7 +17,10 @@ ENV LC_CTYPE en_US.UTF-8
 RUN locale-gen
 
 # Utils
-RUN apt-get install -y vim curl silversearcher-ag apt-file git
+RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh
+RUN git clone https://github.com/jcherqui/oh-my-zsh ~/.oh-my-zsh
+RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
