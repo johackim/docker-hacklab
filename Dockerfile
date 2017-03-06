@@ -30,11 +30,16 @@ RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" 
 
 # Pentest Framework
 RUN apt-get install -y metasploit-framework websploit
+RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
 
-# MITM / Sniffing / ARP poisoning
+# MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
-RUN apt-get install -y mitmproxy dsniff mitmf
+RUN apt-get install -y mitmproxy dsniff mitmf tcpdump
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
+
+# Spoofing email
+RUN apt-get install -y sendemail
+RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
 # Crack password
 RUN apt-get install -y hydra john
@@ -97,5 +102,12 @@ RUN git clone https://github.com/vesche/basicRAT /opt/basicRAT
 
 # Other tools
 RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5.0.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
+
+# Post exploitation
+RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch
+RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
+
+# Privilege escalation
+RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
 
 ADD wordlists /usr/share/
