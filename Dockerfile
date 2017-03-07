@@ -67,7 +67,7 @@ RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.
 
 # Footprinting / Information-Gathering
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
-RUN git clone https://github.com/1N3/Sn1per.git && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
+RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 ADD bin/gathering /usr/local/bin/gathering
 
