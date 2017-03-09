@@ -23,6 +23,10 @@ RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
+# Dependencies
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip
+RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
+
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
 RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
@@ -55,11 +59,9 @@ RUN apt-get install -y httrack
 
 # DDOS Tools
 RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/jcherqui/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
-RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 RUN apt-get install t50
 
 # Kickthemout
-RUN apt-get install -y python-pip
 RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
 
 # NMAP NSE Script vulscan
@@ -72,14 +74,14 @@ RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googl
 ADD bin/gathering /usr/local/bin/gathering
 
 # Wireless
-RUN apt-get install -y cowpatty wifite
+RUN apt-get install -y wifite wifiphisher mdk3
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
+RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
 
 # Automated Backdoor
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign
 RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
 RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
 RUN chmod +x /opt/TheFatRat/fatrat

@@ -52,6 +52,8 @@ Links
 - https://github.com/gchq/CyberChef
 - https://github.com/danielmiessler/SecLists
 - https://pentest-tools.com/
+- https://instant-hack.io/
+- http://zenk-security.com/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
 - https://www.youtube.com/user/Hak5Darren/videos
 - https://www.youtube.com/user/DEFCONConference/videos
