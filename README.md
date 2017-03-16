@@ -23,6 +23,11 @@ docker run -d --name nessus -p 8834:8834 infoslack/nessus
 docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
 ```
 
+Vulnerable Web Application
+---
+
+`docker run --rm -it -p 80:80 vulnerables/web-dvwa`
+
 Doxing/OSINT
 ---
 
