@@ -24,7 +24,7 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip python3-dev python3-setuptools
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
@@ -53,6 +53,9 @@ RUN apt-get install -y nikto wpscan wapiti w3af
 
 # SQL Injection
 RUN apt-get install -y sqlmap themole
+
+# SQL, XSS, LFI, RFI sanner
+RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install
 
 # Phishing
 RUN apt-get install -y httrack
@@ -86,7 +89,9 @@ RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
 RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
 RUN chmod +x /opt/TheFatRat/fatrat
 RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
+RUN git clone https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
 RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
+RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r requirements.txt
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -106,6 +111,9 @@ RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
 
 # Privilege escalation
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
+
+# Forensic
+RUN apt-get install -y libextractor
 
 ADD wordlists /usr/share/
 WORKDIR /root
