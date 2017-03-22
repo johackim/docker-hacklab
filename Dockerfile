@@ -55,6 +55,7 @@ RUN apt-get install -y nikto wpscan wapiti w3af
 RUN apt-get install -y sqlmap themole
 
 # SQL, XSS, LFI, RFI sanner
+RUN apt-get install -y fimap
 RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install
 
 # Phishing
@@ -75,6 +76,7 @@ RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy ne
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 ADD bin/gathering /usr/local/bin/gathering
+ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Wireless
 RUN apt-get install -y wifite wifiphisher mdk3
@@ -115,5 +117,10 @@ RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/Auto
 # Forensic
 RUN apt-get install -y libextractor
 
+# Cheats
+RUN pip install cheat
+ADD .cheat/ /root/
+
 ADD wordlists /usr/share/
+ADD README.md /root/
 WORKDIR /root
