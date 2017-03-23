@@ -24,7 +24,8 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip python3-dev python3-setuptools
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip python3-dev python3-setuptools wine python3-setuptools
+RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
@@ -32,9 +33,14 @@ RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
 RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
+# Paquet manipulation
+RUN apt-get install hping3 scapy
+
 # Pentest Framework
 RUN apt-get install -y metasploit-framework websploit
 RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
+RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt
+RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 
 # MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
@@ -77,6 +83,7 @@ RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per &&
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
+RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 
 # Wireless
 RUN apt-get install -y wifite wifiphisher mdk3
@@ -94,6 +101,9 @@ RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
 RUN git clone https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
 RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
 RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r requirements.txt
+RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
+RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
+RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -116,6 +126,10 @@ RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/Auto
 
 # Forensic
 RUN apt-get install -y libextractor
+
+# Geolocalisation
+RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
+RUN cd /opt/IPGeoLocation && pip3 install -r requirements.txt && chmod +x /opt/IPGeoLocation/ipgeolocation.py
 
 # Cheats
 RUN pip install cheat
