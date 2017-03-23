@@ -34,7 +34,7 @@ RUN figlet -f small "HACKLAB" > /etc/motd
 RUN sed -i '$ d' /etc/motd && echo "https://github.com/jcherqui/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
 # Paquet manipulation
-RUN apt-get install hping3 scapy
+RUN apt-get install -y hping3 scapy
 
 # Pentest Framework
 RUN apt-get install -y metasploit-framework websploit
@@ -72,7 +72,7 @@ RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/jcherqui/
 RUN apt-get install t50
 
 # Kickthemout
-RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
+RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && python -m pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
 
 # NMAP NSE Script vulscan
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
