@@ -63,6 +63,7 @@ RUN apt-get install -y sqlmap themole
 # SQL, XSS, LFI, RFI sanner
 RUN apt-get install -y fimap
 RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install
+RUN git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus
 
 # Phishing
 RUN apt-get install -y httrack
@@ -130,6 +131,9 @@ RUN apt-get install -y libextractor
 # Geolocalisation
 RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
 RUN cd /opt/IPGeoLocation && pip3 install -r requirements.txt && chmod +x /opt/IPGeoLocation/ipgeolocation.py
+
+# crimeflare
+RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
 
 # Cheats
 RUN pip install cheat

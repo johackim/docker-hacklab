@@ -44,6 +44,7 @@ Exploit database
 Links
 ---
 
+- https://gexos.github.io/Hacking-Tools-Repository/
 - https://github.com/enaqx/awesome-pentest
 - https://github.com/Hack-with-Github/Awesome-Hacking
 - https://github.com/sindresorhus/awesome#security
