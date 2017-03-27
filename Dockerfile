@@ -24,10 +24,12 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python-pip python3-dev python3-setuptools wine python3-setuptools
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python3-dev python3-setuptools python-pip libssl-dev
+RUN apt-get install -y wine
 RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 
+# MOTD
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
 RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
@@ -126,7 +128,7 @@ RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
 
 # Forensic
-RUN apt-get install -y libextractor
+# RUN apt-get install -y libextractor
 
 # Geolocalisation
 RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
