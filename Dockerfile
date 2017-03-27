@@ -87,6 +87,7 @@ RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googl
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
+RUN apt-get install -y metagoofil
 
 # Wireless
 RUN apt-get install -y wifite wifiphisher mdk3
@@ -128,7 +129,7 @@ RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
 
 # Forensic
-# RUN apt-get install -y libextractor
+RUN apt-get install -y extract
 
 # Geolocalisation
 RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
