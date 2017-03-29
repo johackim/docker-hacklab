@@ -60,6 +60,7 @@ Links
 - https://pentest-tools.com/
 - https://instant-hack.io/
 - http://zenk-security.com/
+- https://www.hacksplaining.com/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
 - https://www.youtube.com/user/Hak5Darren/videos
 - https://www.youtube.com/user/DEFCONConference/videos

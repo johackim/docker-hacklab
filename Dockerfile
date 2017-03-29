@@ -44,6 +44,9 @@ RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
 RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt
 RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 
+# exploit development library
+RUN pip install pwntools
+
 # MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump
@@ -54,7 +57,8 @@ RUN apt-get install -y sendemail
 RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
 # Crack password
-RUN apt-get install -y hydra john
+RUN apt-get install -y hydra john crunch
+RUN git clone https://github.com/Mebus/cupp /opt/cupp
 
 # Web Scanner
 RUN apt-get install -y nikto wpscan wapiti w3af
@@ -84,11 +88,11 @@ RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
-ADD bin/gathering /usr/local/bin/gathering
-ADD bin/crawler.py /usr/local/bin/crawler.py
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
 RUN apt-get install -y metagoofil
+ADD bin/gathering /usr/local/bin/gathering
+ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Wireless
 RUN apt-get install -y wifite wifiphisher mdk3
