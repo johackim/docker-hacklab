@@ -51,6 +51,7 @@ RUN pip install pwntools
 ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
+RUN git clone https://github.com/LionSec/xerosploit /opt/xerosploit
 
 # Spoofing email
 RUN apt-get install -y sendemail
@@ -129,6 +130,7 @@ RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master
 # Post exploitation
 RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch
 RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
+RUN git clone https://github.com/huntergregal/mimipenguin /opt/mimipenguin
 
 # Privilege escalation
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
