@@ -23,7 +23,7 @@ docker run -d --name nessus -p 8834:8834 infoslack/nessus
 docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
 ```
 
-Vulnerable Web Application
+Run vulnerable web application
 ---
 
 `docker run --rm -it -p 80:80 vulnerables/web-dvwa`
@@ -41,7 +41,7 @@ Exploit database
 - http://0day.today/
 - https://www.exploit-db.com/
 
-Links
+Other resources
 ---
 
 - https://gexos.github.io/Hacking-Tools-Repository/
