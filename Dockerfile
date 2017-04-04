@@ -142,12 +142,26 @@ RUN apt-get install -y extract
 RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
 RUN cd /opt/IPGeoLocation && pip3 install -r requirements.txt && chmod +x /opt/IPGeoLocation/ipgeolocation.py
 
+# Shellcode
+RUN git clone https://github.com/reyammer/shellnoob /opt/shellnoob
+
+# Wordpress
+RUN git clone https://github.com/n00py/WPForce /opt/WPForce
+
 # crimeflare
 RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
 
+# Hash Identifying tool
+RUN gem install hashdata
+
 # Cheats
 RUN pip install cheat
-ADD .cheat/ /root/
+ADD .cheat/ /root/.cheat/
+RUN echo "_cmpl_cheat() {\n\
+    reply=($(cheat -l | cut -d' ' -f1))\n\
+}\n\
+compctl -K _cmpl_cheat cheat\n"\
+>> /root/.zshrc
 
 ADD wordlists /usr/share/
 ADD README.md /root/
