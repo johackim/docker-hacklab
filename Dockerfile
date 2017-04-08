@@ -43,6 +43,7 @@ RUN apt-get install -y metasploit-framework websploit
 RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
 RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt
 RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
+RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
 
 # exploit development library
 RUN pip install pwntools
@@ -91,6 +92,7 @@ RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per &&
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
+RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
@@ -99,6 +101,7 @@ ADD bin/crawler.py /usr/local/bin/crawler.py
 RUN apt-get install -y wifite wifiphisher mdk3
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
 RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
+RUN git clone https://github.com/chrizator/netattack /opt/netattack
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
@@ -134,6 +137,7 @@ RUN git clone https://github.com/huntergregal/mimipenguin /opt/mimipenguin
 
 # Privilege escalation
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
+RUN git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock
 
 # Forensic
 RUN apt-get install -y extract
