@@ -39,6 +39,8 @@ Exploit database
 
 - http://cve.mitre.org/
 - http://0day.today/
+- https://nvd.nist.gov/
+- http://www.securityfocus.com/bid/
 - https://www.exploit-db.com/
 
 Other resources
