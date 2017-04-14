@@ -50,9 +50,10 @@ RUN pip install pwntools
 
 # MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
-RUN apt-get install -y mitmproxy dsniff mitmf tcpdump
+RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
 RUN git clone https://github.com/LionSec/xerosploit /opt/xerosploit
+RUN git clone https://github.com/kgretzky/evilginx /opt/evilginx
 
 # Spoofing email
 RUN apt-get install -y sendemail
@@ -154,6 +155,9 @@ RUN git clone https://github.com/n00py/WPForce /opt/WPForce
 
 # crimeflare
 RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
+
+# Steganography
+RUN git clone https://github.com/solusipse/spectrology /opt/spectrology
 
 # Hash Identifying tool
 RUN gem install hashdata
