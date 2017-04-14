@@ -7,12 +7,12 @@ Quick Start
 ---
 
 ```
-$ docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
+$ docker run -d --name hacklab --net=host --privileged -it stoneo/docker-hacklab
  _  _   _   ___ _  ___      _   ___
 | || | /_\ / __| |/ / |    /_\ | _ )
 | __ |/ _ \ (__| ' <| |__ / _ \| _ \
 |_||_/_/ \_\___|_|\_\____/_/ \_\___/
-https://github.com/jcherqui/docker-hacklab
+https://github.com/stoneo/docker-hacklab
 ```
 
 Run other vuln scanners
