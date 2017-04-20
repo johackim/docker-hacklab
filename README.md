@@ -26,7 +26,7 @@ docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/ope
 Run vulnerable web application
 ---
 
-`docker run --rm -it -p 80:80 vulnerables/web-dvwa`
+`docker run -d --name dvwa -it -p 80:80 vulnerables/web-dvwa`
 
 Doxing/OSINT
 ---
