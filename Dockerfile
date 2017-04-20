@@ -24,7 +24,7 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server mdk3 python3-dev python3-setuptools python-pip libssl-dev
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev
 RUN apt-get install -y wine
 RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
@@ -94,12 +94,13 @@ RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googl
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
 RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
+RUN git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Wireless
-RUN apt-get install -y wifite wifiphisher mdk3
+RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
 RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 RUN git clone https://github.com/chrizator/netattack /opt/netattack
@@ -129,7 +130,7 @@ RUN git clone https://github.com/lightos/credmap /opt/credmap
 RUN git clone https://github.com/vesche/basicRAT /opt/basicRAT
 
 # Other tools
-RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5.0.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
+RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
 
 # Post exploitation
 RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch
@@ -139,6 +140,7 @@ RUN git clone https://github.com/huntergregal/mimipenguin /opt/mimipenguin
 # Privilege escalation
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
 RUN git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock
+RUN git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot
 
 # Forensic
 RUN apt-get install -y extract
@@ -161,6 +163,9 @@ RUN git clone https://github.com/solusipse/spectrology /opt/spectrology
 
 # Hash Identifying tool
 RUN gem install hashdata
+
+# Honeypot
+RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot
 
 # Cheats
 RUN pip install cheat
