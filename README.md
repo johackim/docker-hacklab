@@ -33,6 +33,14 @@ Doxing/OSINT
 
 - http://www.peekyou.com/
 - https://pipl.com/
+- https://iplogger.org/
+
+Search Mobile Vulns
+---
+
+```
+docker run -i -t -p 8000:8000 opensecurity/mobsf:latest
+```
 
 Exploit database
 ---
@@ -64,6 +72,7 @@ Other resources
 - http://zenk-security.com/
 - https://www.hacksplaining.com/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+- https://www.punycoder.com/
 - https://www.youtube.com/user/Hak5Darren/videos
 - https://www.youtube.com/user/DEFCONConference/videos
 - https://www.youtube.com/user/BlackHatOfficialYT/videos
