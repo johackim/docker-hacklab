@@ -44,6 +44,7 @@ RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
 RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt
 RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
+RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
 
 # exploit development library
 RUN pip install pwntools
@@ -60,6 +61,7 @@ RUN apt-get install -y sendemail
 RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
 # Crack password
+# RUN git clone https://github.com/berzerk0/Probable-Wordlists /opt/Probable-Wordlists
 RUN apt-get install -y hydra john crunch
 RUN git clone https://github.com/Mebus/cupp /opt/cupp
 
@@ -104,6 +106,7 @@ RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
 RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 RUN git clone https://github.com/chrizator/netattack /opt/netattack
+RUN git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
@@ -154,6 +157,7 @@ RUN git clone https://github.com/reyammer/shellnoob /opt/shellnoob
 
 # Wordpress
 RUN git clone https://github.com/n00py/WPForce /opt/WPForce
+RUN git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku
 
 # crimeflare
 RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
@@ -178,4 +182,5 @@ compctl -K _cmpl_cheat cheat\n"\
 
 ADD wordlists /usr/share/
 ADD README.md /root/
+ADD Dockerfile /root/
 WORKDIR /root
