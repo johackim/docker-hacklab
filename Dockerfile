@@ -89,7 +89,7 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/ki
 # NMAP NSE Script vulscan
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
-# Footprinting / Information-Gathering / OSINT
+# Footprinting / Information-Gathering / OSINT / Fingerprint
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
@@ -97,6 +97,7 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
 RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
 RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
 RUN git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat
+RUN git clone https://github.com/graniet/operative-framework /opt/operative-framework
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
