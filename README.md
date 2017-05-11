@@ -65,6 +65,8 @@ Other resources
 - https://www.cybrary.it/
 - http://null-byte.wonderhowto.com/
 - https://hackademics.fr
+- https://www.shodan.io/
+- https://censys.io/
 - https://github.com/gchq/CyberChef
 - https://github.com/danielmiessler/SecLists
 - https://pentest-tools.com/
