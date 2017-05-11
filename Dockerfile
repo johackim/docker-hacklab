@@ -45,6 +45,7 @@ RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /o
 RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
 RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
+RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
 
 # exploit development library
 RUN pip install pwntools
@@ -54,7 +55,6 @@ ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
 RUN git clone https://github.com/LionSec/xerosploit /opt/xerosploit
-RUN git clone https://github.com/kgretzky/evilginx /opt/evilginx
 
 # Spoofing email
 RUN apt-get install -y sendemail
@@ -78,10 +78,12 @@ RUN git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus
 
 # Phishing
 RUN apt-get install -y httrack
+RUN git clone https://github.com/kgretzky/evilginx /opt/evilginx
 
 # DDOS Tools
 RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/stoneo/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
 RUN apt-get install t50
+RUN git clone https://github.com/Souhardya/Warchild /opt/Warchild
 
 # Kickthemout
 RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && python -m pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
@@ -98,14 +100,18 @@ RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
 RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
 RUN git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat
 RUN git clone https://github.com/graniet/operative-framework /opt/operative-framework
+RUN git clone git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga
+RUN git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin
+RUN git clone https://github.com/vesche/scanless /opt/scanless
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Wireless
+# RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
-RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
+RUN git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion
 RUN git clone https://github.com/chrizator/netattack /opt/netattack
 RUN git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer
 
@@ -132,9 +138,6 @@ RUN git clone https://github.com/lightos/credmap /opt/credmap
 
 # Trojan
 RUN git clone https://github.com/vesche/basicRAT /opt/basicRAT
-
-# Other tools
-RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
 
 # Post exploitation
 RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch
