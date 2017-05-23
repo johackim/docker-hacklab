@@ -45,6 +45,7 @@ RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /o
 RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
 RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
+RUN git clone https://github.com/Ekultek/Pybelt /opt/Pybelt
 RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
 
 # exploit development library
@@ -62,8 +63,10 @@ RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
 # Crack password
 # RUN git clone https://github.com/berzerk0/Probable-Wordlists /opt/Probable-Wordlists
-RUN apt-get install -y hydra john crunch
+RUN apt-get install -y hydra john crunch cewl
 RUN git clone https://github.com/Mebus/cupp /opt/cupp
+RUN git clone https://github.com/k4m4/dymerge.git /opt/dymerge
+RUN git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
 
 # Web Scanner
 RUN apt-get install -y nikto wpscan wapiti w3af
@@ -75,6 +78,7 @@ RUN apt-get install -y sqlmap themole
 RUN apt-get install -y fimap
 RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install
 RUN git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus
+RUN git clone https://github.com/WhitewidowScanner/whitewidow /opt/whitewidow
 
 # Phishing
 RUN apt-get install -y httrack
@@ -90,19 +94,23 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/ki
 
 # NMAP NSE Script vulscan
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
+# https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
+RUN git clone https://github.com/seifreed/dirb /opt/dirb
 RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
 RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
+RUN git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail
 RUN git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat
 RUN git clone https://github.com/graniet/operative-framework /opt/operative-framework
-RUN git clone git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga
+RUN git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga
 RUN git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin
 RUN git clone https://github.com/vesche/scanless /opt/scanless
+RUN git clone https://github.com/techgaun/github-dorks /opt/github-dorks
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
@@ -114,6 +122,8 @@ RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/
 RUN git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion
 RUN git clone https://github.com/chrizator/netattack /opt/netattack
 RUN git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer
+RUN git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin
+RUN git clone https://github.com/chrizator/netattack2/ /opt/netattack2
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
@@ -125,7 +135,7 @@ RUN chmod +x /opt/TheFatRat/fatrat
 RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
 RUN git clone https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
 RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
-RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r requirements.txt
+# RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
 RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
 RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
 RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
@@ -174,6 +184,9 @@ RUN gem install hashdata
 
 # Honeypot
 RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot
+
+# Reverse shell
+RUN apt-get install -y netcat
 
 # Cheats
 RUN pip install cheat
