@@ -84,6 +84,8 @@ Other resources
 - https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
 - https://www.youtube.com/user/gaytony10/playlists
 - https://www.youtube.com/user/bhargavtandel/videos
+- http://www.funinformatique.com/google-dorks-hackez-requete-google/
+- https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 
 License
 ---
