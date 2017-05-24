@@ -7,7 +7,7 @@ Quick Start
 ---
 
 ```
-$ docker run -d --name hacklab --net=host --privileged -it stoneo/docker-hacklab
+$ docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
  _  _   _   ___ _  ___      _   ___
 | || | /_\ / __| |/ / |    /_\ | _ )
 | __ |/ _ \ (__| ' <| |__ / _ \| _ \

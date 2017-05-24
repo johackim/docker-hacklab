@@ -46,6 +46,7 @@ RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
 RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
 RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
 RUN git clone https://github.com/Ekultek/Pybelt /opt/Pybelt
+RUN git clone https://github.com/nccgroup/redsnarf /opt/redsnarf
 RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
 
 # exploit development library
@@ -111,6 +112,8 @@ RUN git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga
 RUN git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin
 RUN git clone https://github.com/vesche/scanless /opt/scanless
 RUN git clone https://github.com/techgaun/github-dorks /opt/github-dorks
+RUN git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r
+RUN git clone https://github.com/TheRook/subbrute /opt/subbrute
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
@@ -124,6 +127,7 @@ RUN git clone https://github.com/chrizator/netattack /opt/netattack
 RUN git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer
 RUN git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin
 RUN git clone https://github.com/chrizator/netattack2/ /opt/netattack2
+RUN git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
