@@ -69,6 +69,9 @@ RUN git clone https://github.com/Mebus/cupp /opt/cupp
 RUN git clone https://github.com/k4m4/dymerge.git /opt/dymerge
 RUN git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
 
+# Hash
+RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
+
 # Web Scanner
 RUN apt-get install -y nikto wpscan wapiti w3af
 
