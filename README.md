@@ -7,7 +7,9 @@ Quick Start
 ---
 
 ```
-$ docker run -d --name hacklab --net=host --privileged -it jcherqui/docker-hacklab
+$ docker build -t hacklab .
+$ docker run --name hacklab --net=host --privileged hacklab
+$ docker exec -it hacklab zsh
  _  _   _   ___ _  ___      _   ___
 | || | /_\ / __| |/ / |    /_\ | _ )
 | __ |/ _ \ (__| ' <| |__ / _ \| _ \

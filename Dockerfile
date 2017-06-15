@@ -117,6 +117,7 @@ RUN git clone https://github.com/vesche/scanless /opt/scanless
 RUN git clone https://github.com/techgaun/github-dorks /opt/github-dorks
 RUN git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r
 RUN git clone https://github.com/TheRook/subbrute /opt/subbrute
+RUN git clone https://github.com/aancw/Belati /opt/Belati
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
@@ -149,6 +150,7 @@ RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/back
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
+RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit
 
 # Check passwords
 RUN git clone https://github.com/lightos/credmap /opt/credmap
