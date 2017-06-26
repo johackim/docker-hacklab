@@ -17,7 +17,7 @@ ENV LC_CTYPE en_US.UTF-8
 RUN locale-gen
 
 # Utils
-RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh
+RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh ncdu
 RUN git clone https://github.com/stoneo/oh-my-zsh ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
@@ -40,14 +40,14 @@ RUN apt-get install -y hping3 scapy
 
 # Pentest Framework
 RUN apt-get install -y metasploit-framework websploit
-RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox
-RUN git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt
-RUN git clone https://github.com/nil0x42/phpsploit /opt/phpsploit
-RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
-RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
-RUN git clone https://github.com/Ekultek/Pybelt /opt/Pybelt
-RUN git clone https://github.com/nccgroup/redsnarf /opt/redsnarf
-RUN git clone https://github.com/FreelancePentester/ddos-script /opt/ddos-script
+RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox && \
+    git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt && \
+    git clone https://github.com/nil0x42/phpsploit /opt/phpsploit && \
+    git clone https://github.com/C0reL0ader/EaST /opt/EaST && \
+    git clone https://github.com/leviathan-framework/leviathan /opt/leviathan && \
+    git clone https://github.com/Ekultek/Pybelt /opt/Pybelt && \
+    git clone https://github.com/nccgroup/redsnarf /opt/redsnarf && \
+    git clone https://github.com/FreelancePentester/ddos-script /opt/ddos-script
 
 # exploit development library
 RUN pip install pwntools
@@ -55,8 +55,8 @@ RUN pip install pwntools
 # MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
-RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus
-RUN git clone https://github.com/LionSec/xerosploit /opt/xerosploit
+RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
+    git clone https://github.com/LionSec/xerosploit /opt/xerosploit
 
 # Spoofing email
 RUN apt-get install -y sendemail
@@ -65,9 +65,9 @@ RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 # Crack password
 # RUN git clone https://github.com/berzerk0/Probable-Wordlists /opt/Probable-Wordlists
 RUN apt-get install -y hydra john crunch cewl
-RUN git clone https://github.com/Mebus/cupp /opt/cupp
-RUN git clone https://github.com/k4m4/dymerge.git /opt/dymerge
-RUN git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
+RUN git clone https://github.com/Mebus/cupp /opt/cupp && \
+    git clone https://github.com/k4m4/dymerge.git /opt/dymerge && \
+    git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
 
 # Hash
 RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
@@ -80,9 +80,9 @@ RUN apt-get install -y sqlmap themole
 
 # SQL, XSS, LFI, RFI sanner
 RUN apt-get install -y fimap
-RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install
-RUN git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus
-RUN git clone https://github.com/WhitewidowScanner/whitewidow /opt/whitewidow
+RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install && \
+    git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus && \
+    git clone https://github.com/WhitewidowScanner/whitewidow /opt/whitewidow
 
 # Phishing
 RUN apt-get install -y httrack
@@ -94,7 +94,11 @@ RUN apt-get install t50
 RUN git clone https://github.com/Souhardya/Warchild /opt/Warchild
 
 # Kickthemout
-RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && python -m pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
+RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
+    cd /opt/kickthemout/ && \
+    python -m pip install -r requirements.txt && \
+    ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && \
+    chmod +x kickthemout.py
 
 # NMAP NSE Script vulscan
 # https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
@@ -104,20 +108,20 @@ RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
-RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch
-RUN git clone https://github.com/seifreed/dirb /opt/dirb
-RUN git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor
-RUN git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester
-RUN git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail
-RUN git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat
-RUN git clone https://github.com/graniet/operative-framework /opt/operative-framework
-RUN git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga
-RUN git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin
-RUN git clone https://github.com/vesche/scanless /opt/scanless
-RUN git clone https://github.com/techgaun/github-dorks /opt/github-dorks
-RUN git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r
-RUN git clone https://github.com/TheRook/subbrute /opt/subbrute
-RUN git clone https://github.com/aancw/Belati /opt/Belati
+RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
+    git clone https://github.com/seifreed/dirb /opt/dirb && \
+    git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor && \
+    git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester && \
+    git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail && \
+    git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat && \
+    git clone https://github.com/graniet/operative-framework /opt/operative-framework && \
+    git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga && \
+    git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin && \
+    git clone https://github.com/vesche/scanless /opt/scanless && \
+    git clone https://github.com/techgaun/github-dorks /opt/github-dorks && \
+    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
+    git clone https://github.com/TheRook/subbrute /opt/subbrute && \
+    git clone https://github.com/aancw/Belati /opt/Belati
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
@@ -125,13 +129,13 @@ ADD bin/crawler.py /usr/local/bin/crawler.py
 # Wireless
 # RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
-RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt
-RUN git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion
-RUN git clone https://github.com/chrizator/netattack /opt/netattack
-RUN git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer
-RUN git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin
-RUN git clone https://github.com/chrizator/netattack2/ /opt/netattack2
-RUN git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
+RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt && \
+    git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion && \
+    git clone https://github.com/chrizator/netattack /opt/netattack && \
+    git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer && \
+    git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin && \
+    git clone https://github.com/chrizator/netattack2/ /opt/netattack2 && \
+    git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
@@ -150,8 +154,8 @@ RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/back
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
-RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit
-RUN git clone https://github.com/1N3/findsploit /opt/findsploit
+RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
+    git clone https://github.com/1N3/findsploit /opt/findsploit
 
 # Check passwords
 RUN git clone https://github.com/lightos/credmap /opt/credmap
@@ -160,14 +164,14 @@ RUN git clone https://github.com/lightos/credmap /opt/credmap
 RUN git clone https://github.com/vesche/basicRAT /opt/basicRAT
 
 # Post exploitation
-RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch
-RUN git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz
-RUN git clone https://github.com/huntergregal/mimipenguin /opt/mimipenguin
+RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch && \
+    git clone https://github.com/putterpanda/mimikittenz /opt/mimikittenz && \
+    git clone https://github.com/huntergregal/mimipenguin /opt/mimipenguin
 
 # Privilege escalation
-RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation
-RUN git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock
-RUN git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot
+RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation && \
+    git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock && \
+    git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot
 
 # Forensic
 RUN apt-get install -y extract
@@ -207,6 +211,11 @@ RUN echo "_cmpl_cheat() {\n\
 }\n\
 compctl -K _cmpl_cheat cheat\n"\
 >> /root/.zshrc
+
+# Clean
+RUN apt-get autoremove
+RUN rm -rf /tmp/*
+RUN rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
 
 ADD wordlists /usr/share/
 ADD README.md /root/
