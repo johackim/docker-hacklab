@@ -47,7 +47,7 @@ RUN git clone https://github.com/C0reL0ader/EaST /opt/EaST
 RUN git clone https://github.com/leviathan-framework/leviathan /opt/leviathan
 RUN git clone https://github.com/Ekultek/Pybelt /opt/Pybelt
 RUN git clone https://github.com/nccgroup/redsnarf /opt/redsnarf
-RUN wget https://raw.githubusercontent.com/FreelancePentester/ddos-script/master/Ddosv5-0-1.sh -O /usr/local/bin/ddos-script && chmod +x /usr/local/bin/ddos-script
+RUN git clone https://github.com/FreelancePentester/ddos-script /opt/ddos-script
 
 # exploit development library
 RUN pip install pwntools
@@ -97,8 +97,8 @@ RUN git clone https://github.com/Souhardya/Warchild /opt/Warchild
 RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && cd /opt/kickthemout/ && python -m pip install -r requirements.txt && ln -s /opt/kickthemout/kickthemout.py /usr/local/bin/kickthemout && chmod +x kickthemout.py
 
 # NMAP NSE Script vulscan
-RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 # https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
+RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
@@ -137,13 +137,13 @@ RUN git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
 RUN apt-get install -y apktool set
 
 # Automated Backdoor
+# RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
 RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
 RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
 RUN chmod +x /opt/TheFatRat/fatrat
 RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
 RUN git clone https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
 RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
-# RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
 RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
 RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
 RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
@@ -151,6 +151,7 @@ RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/back
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
 RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit
+RUN git clone https://github.com/1N3/findsploit /opt/findsploit
 
 # Check passwords
 RUN git clone https://github.com/lightos/credmap /opt/credmap
@@ -184,6 +185,7 @@ RUN git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku
 
 # crimeflare
 RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
+RUN git clone https://github.com/m0rtem/CloudFail /opt/CloudFail
 
 # Steganography
 RUN git clone https://github.com/solusipse/spectrology /opt/spectrology
