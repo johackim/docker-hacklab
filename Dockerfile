@@ -151,6 +151,7 @@ RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk
 RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
 RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
 RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
+RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit # For Microsoft
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -202,6 +203,9 @@ RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot
 
 # Reverse shell
 RUN apt-get install -y netcat
+
+# Detect WAF
+RUN git clone https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 
 # Cheats
 RUN pip install cheat
