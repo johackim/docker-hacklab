@@ -20,15 +20,24 @@ https://github.com/stoneo/docker-hacklab
 Run other vuln scanners
 ---
 
-```bash
-docker run -d --name nessus -p 8834:8834 infoslack/nessus
-docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
+```
+$ docker run -d --name nessus -p 8834:8834 infoslack/nessus
+$ docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
 ```
 
 Run vulnerable web application
 ---
 
-`docker run -d --name dvwa -it -p 80:80 vulnerables/web-dvwa`
+```
+$ docker run -d --name dvwa -it -p 80:80 vulnerables/web-dvwa
+```
+
+Search Mobile Vulns
+---
+
+```
+$ docker run -i -t -p 8000:8000 opensecurity/mobsf:latest
+```
 
 Doxing/OSINT
 ---
@@ -36,13 +45,6 @@ Doxing/OSINT
 - http://www.peekyou.com/
 - https://pipl.com/
 - https://iplogger.org/
-
-Search Mobile Vulns
----
-
-```
-docker run -i -t -p 8000:8000 opensecurity/mobsf:latest
-```
 
 Exploit database
 ---
