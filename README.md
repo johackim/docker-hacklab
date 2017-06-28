@@ -53,6 +53,13 @@ Exploit database
 - http://www.securityfocus.com/bid/
 - https://www.exploit-db.com/
 
+Search Engines
+---
+
+- https://www.shodan.io/
+- https://censys.io/
+- https://www.zoomeye.org/
+
 Other resources
 ---
 
@@ -67,8 +74,6 @@ Other resources
 - https://www.cybrary.it/
 - http://null-byte.wonderhowto.com/
 - https://hackademics.fr
-- https://www.shodan.io/
-- https://censys.io/
 - https://github.com/gchq/CyberChef
 - https://github.com/danielmiessler/SecLists
 - https://pentest-tools.com/
@@ -88,6 +93,7 @@ Other resources
 - https://www.youtube.com/user/bhargavtandel/videos
 - http://www.funinformatique.com/google-dorks-hackez-requete-google/
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
+- https://securityonline.info
 
 License
 ---
