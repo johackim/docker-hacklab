@@ -139,6 +139,7 @@ RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/
 
 # Reverse Engineering
 RUN apt-get install -y apktool set
+RUN git clone https://github.com/radare/radare2 /opt/radare2
 
 # Automated Backdoor
 # RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
@@ -152,6 +153,7 @@ RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
 RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
 RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
 RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit # For Microsoft
+RUN git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
