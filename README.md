@@ -96,6 +96,7 @@ Other resources
 - http://www.funinformatique.com/google-dorks-hackez-requete-google/
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 - https://securityonline.info
+- http://hardsploit.io
 
 License
 ---
