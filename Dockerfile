@@ -24,7 +24,7 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2
 RUN apt-get install -y wine
 RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
@@ -81,6 +81,7 @@ RUN apt-get install -y sqlmap themole
 # SQL, XSS, LFI, RFI sanner
 RUN apt-get install -y fimap
 RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install && \
+    git clone https://github.com/D35m0nd142/LFISuite /opt/LFISuite && \
     git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus && \
     git clone https://github.com/WhitewidowScanner/whitewidow /opt/whitewidow
 
@@ -174,7 +175,8 @@ RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch && \
 # Privilege escalation
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation && \
     git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock && \
-    git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot
+    git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot && \
+    git clone https://github.com/nilotpalbiswas/Auto-Root-Exploit
 
 # Forensic
 RUN apt-get install -y extract
@@ -217,6 +219,12 @@ RUN echo "_cmpl_cheat() {\n\
 }\n\
 compctl -K _cmpl_cheat cheat\n"\
 >> /root/.zshrc
+
+RUN apt-get install -y nodejs-legacy npm \
+    npm cache clean -f \
+    npm install -g n \
+    n stable \
+    npm i -g Brosec
 
 # Clean
 RUN apt-get autoremove
