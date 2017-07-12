@@ -220,10 +220,10 @@ RUN echo "_cmpl_cheat() {\n\
 compctl -K _cmpl_cheat cheat\n"\
 >> /root/.zshrc
 
-RUN apt-get install -y nodejs-legacy npm \
-    npm cache clean -f \
-    npm install -g n \
-    n stable \
+RUN apt-get install -y nodejs-legacy npm && \
+    npm cache clean -f && \
+    npm install -g n && \
+    n stable && \
     npm i -g Brosec
 
 # Clean
