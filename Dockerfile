@@ -211,6 +211,9 @@ RUN apt-get install -y netcat
 # Detect WAF
 RUN git clone https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 
+# Remove metadata
+RUN apt-get install -y mat
+
 # Cheats
 RUN pip install cheat
 ADD .cheat/ /root/.cheat/
