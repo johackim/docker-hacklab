@@ -129,13 +129,13 @@ ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Wireless
 # RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
+# git clone https://github.com/chrizator/netattack2/ /opt/netattack2
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt && \
     git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion && \
     git clone https://github.com/chrizator/netattack /opt/netattack && \
     git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer && \
     git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin && \
-    git clone https://github.com/chrizator/netattack2/ /opt/netattack2 && \
     git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
 
 # Reverse Engineering
