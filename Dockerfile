@@ -230,7 +230,7 @@ RUN apt-get install -y nodejs-legacy npm && \
     npm i -g Brosec
 
 # Clean
-RUN apt-get autoremove
+RUN apt-get autoremove -y
 RUN rm -rf /tmp/*
 RUN rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
 
