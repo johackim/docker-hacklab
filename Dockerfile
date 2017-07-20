@@ -24,7 +24,7 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2
+RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go
 RUN apt-get install -y wine
 RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
@@ -56,6 +56,7 @@ RUN pip install pwntools
 ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
+    git clone https://github.com/evilsocket/bettercap && \
     git clone https://github.com/LionSec/xerosploit /opt/xerosploit
 
 # Spoofing email
@@ -155,6 +156,7 @@ RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoor
 RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
 RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit # For Microsoft
 RUN git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads
+RUN git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -213,6 +215,9 @@ RUN git clone https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 
 # Remove metadata
 RUN apt-get install -y mat
+
+# Evasion
+RUN git clone https://github.com/jbreed/apkwash /opt/apkwash
 
 # Cheats
 RUN pip install cheat
