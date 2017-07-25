@@ -70,6 +70,7 @@ Other resources
 - https://github.com/Hack-with-Github/Awesome-Hacking
 - https://github.com/sindresorhus/awesome#security
 - https://github.com/carpedm20/awesome-hacking
+- https://github.com/brannondorsey/wifi-cracking
 - https://penetration-testing.zeef.com/jeroen.rijken
 - http://sectools.org/
 - http://pwnwiki.io/

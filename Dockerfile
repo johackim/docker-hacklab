@@ -219,6 +219,9 @@ RUN apt-get install -y mat
 # Evasion
 RUN git clone https://github.com/jbreed/apkwash /opt/apkwash
 
+# Dropper
+RUN git clone https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
+
 # Cheats
 RUN pip install cheat
 ADD .cheat/ /root/.cheat/
