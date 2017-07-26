@@ -18,7 +18,7 @@ RUN locale-gen
 
 # Utils
 RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh ncdu
-RUN git clone https://github.com/stoneo/oh-my-zsh ~/.oh-my-zsh
+RUN git clone https://github.com/ston3o/oh-my-zsh ~/.oh-my-zsh
 RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
@@ -33,7 +33,7 @@ RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl &
 RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
 RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
-RUN sed -i '$ d' /etc/motd && echo "https://github.com/stoneo/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
+RUN sed -i '$ d' /etc/motd && echo "https://github.com/ston3o/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
 # Paquet manipulation
 RUN apt-get install -y hping3 scapy
@@ -91,7 +91,7 @@ RUN apt-get install -y httrack
 RUN git clone https://github.com/kgretzky/evilginx /opt/evilginx
 
 # DDOS Tools
-RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/stoneo/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
+RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/ston3o/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
 RUN apt-get install t50
 RUN git clone https://github.com/Souhardya/Warchild /opt/Warchild
 

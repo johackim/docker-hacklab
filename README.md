@@ -14,7 +14,7 @@ $ docker exec -it hacklab zsh
 | || | /_\ / __| |/ / |    /_\ | _ )
 | __ |/ _ \ (__| ' <| |__ / _ \| _ \
 |_||_/_/ \_\___|_|\_\____/_/ \_\___/
-https://github.com/stoneo/docker-hacklab
+https://github.com/ston3o/docker-hacklab
 ```
 
 Run other vuln scanners
