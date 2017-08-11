@@ -24,7 +24,8 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 monodevelop xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go
+# RUN apt-get install -y monodevelop
+RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go
 RUN apt-get install -y wine
 RUN easy_install3 pip
 RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
@@ -57,6 +58,7 @@ ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
     git clone https://github.com/evilsocket/bettercap && \
+    git clone https://github.com/brannondorsey/mitm-router && \
     git clone https://github.com/LionSec/xerosploit /opt/xerosploit
 
 # Spoofing email
@@ -107,11 +109,11 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
+# RUN git clone https://github.com/seifreed/dirb /opt/dirb
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
-    git clone https://github.com/seifreed/dirb /opt/dirb && \
     git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor && \
     git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester && \
     git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail && \
@@ -161,7 +163,8 @@ RUN git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
 RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
-    git clone https://github.com/1N3/findsploit /opt/findsploit
+    git clone https://github.com/1N3/findsploit /opt/findsploit && \
+    git clone https://github.com/MalwareReverseBrasil/malwaresearch /opt/malwaresearch
 
 # Check passwords
 RUN git clone https://github.com/lightos/credmap /opt/credmap
