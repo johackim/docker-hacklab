@@ -98,6 +98,7 @@ Other resources
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 - https://securityonline.info
 - http://hardsploit.io
+- https://github.com/We5ter/Scanners-Box
 
 License
 ---
