@@ -21,6 +21,7 @@ Run other vuln scanners
 ```
 $ docker run -d --name nessus -p 8834:8834 infoslack/nessus
 $ docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
+$ docker run --rm -it menzo/sn1per-docker sniper example.com
 ```
 
 Run vulnerable web application
