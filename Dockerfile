@@ -77,6 +77,7 @@ RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
 
 # Web Scanner
 RUN apt-get install -y nikto wpscan wapiti w3af
+RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti
 
 # SQL Injection
 RUN apt-get install -y sqlmap themole
