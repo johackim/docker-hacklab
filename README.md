@@ -98,6 +98,7 @@ Other resources
 - https://securityonline.info
 - http://hardsploit.io
 - https://github.com/We5ter/Scanners-Box
+- https://github.com/vitalysim/Awesome-Hacking-Resources
 
 License
 ---

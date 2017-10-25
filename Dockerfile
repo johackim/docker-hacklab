@@ -76,7 +76,7 @@ RUN git clone https://github.com/Mebus/cupp /opt/cupp && \
 RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
 
 # Web Scanner
-RUN apt-get install -y nikto wpscan wapiti w3af
+RUN apt-get install -y arachni nikto wpscan wapiti w3af
 RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti
 
 # SQL Injection
@@ -126,6 +126,7 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/techgaun/github-dorks /opt/github-dorks && \
     git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
     git clone https://github.com/TheRook/subbrute /opt/subbrute && \
+    git clone https://github.com/utiso/dorkbot /opt/dorkbot && \
     git clone https://github.com/aancw/Belati /opt/Belati
 RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
@@ -182,6 +183,7 @@ RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch && \
 RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation && \
     git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock && \
     git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot && \
+    git clone https://github.com/NullArray/MIDA-Multitool.git /opt/MIDA && \
     git clone https://github.com/nilotpalbiswas/Auto-Root-Exploit
 
 # Forensic
