@@ -114,6 +114,7 @@ RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
 RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
+RUN pip install shodan
 RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor && \
     git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester && \
@@ -211,7 +212,8 @@ RUN git clone https://github.com/solusipse/spectrology /opt/spectrology
 RUN gem install hashdata
 
 # Honeypot
-RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot
+RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot && \
+    git clone https://github.com/micheloosterhof/cowrie /opt/cowrie
 
 # Reverse shell
 RUN apt-get install -y netcat
