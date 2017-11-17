@@ -24,7 +24,6 @@ RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
 RUN apt-file update
 
 # Dependencies
-# RUN apt-get install -y monodevelop
 RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go
 RUN apt-get install -y wine
 RUN easy_install3 pip
@@ -36,12 +35,54 @@ RUN apt-get install -y figlet
 RUN figlet -f small "HACKLAB" > /etc/motd
 RUN sed -i '$ d' /etc/motd && echo "https://github.com/ston3o/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
+# Cheats
+RUN pip install cheat
+ADD .cheat/ /root/.cheat/
+RUN echo "_cmpl_cheat() {\n\
+    reply=($(cheat -l | cut -d' ' -f1))\n\
+}\n\
+compctl -K _cmpl_cheat cheat\n"\
+>> /root/.zshrc
+RUN apt-get install -y nodejs-legacy npm && \
+    npm cache clean -f && \
+    npm install -g n && \
+    n stable && \
+    npm i -g Brosec
+
+################################################################################################################################
+################################################################################################################################
+
+# Footprinting / Information-Gathering / OSINT / Fingerprint
+RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
+RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
+RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
+RUN pip install shodan
+RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
+    git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor && \
+    git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester && \
+    git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail && \
+    git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat && \
+    git clone https://github.com/graniet/operative-framework /opt/operative-framework && \
+    git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga && \
+    git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin && \
+    git clone https://github.com/vesche/scanless /opt/scanless && \
+    git clone https://github.com/techgaun/github-dorks /opt/github-dorks && \
+    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
+    git clone https://github.com/TheRook/subbrute /opt/subbrute && \
+    git clone https://github.com/utiso/dorkbot /opt/dorkbot && \
+    git clone https://github.com/DataSploit/datasploit /opt/datasploit && \
+    git clone https://github.com/aancw/Belati /opt/Belati
+RUN apt-get install -y metagoofil
+ADD bin/gathering /usr/local/bin/gathering
+ADD bin/crawler.py /usr/local/bin/crawler.py
+
 # Paquet manipulation
 RUN apt-get install -y hping3 scapy
 
 # Pentest Framework
-RUN apt-get install -y metasploit-framework websploit
-RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox && \
+# RUN pip install pwntools
+RUN apt-get install -y metasploit-framework websploit && \
+    git clone https://github.com/x3omdax/PenBox /opt/PenBox && \
     git clone https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt && \
     git clone https://github.com/nil0x42/phpsploit /opt/phpsploit && \
     git clone https://github.com/C0reL0ader/EaST /opt/EaST && \
@@ -49,9 +90,6 @@ RUN git clone https://github.com/x3omdax/PenBox /opt/PenBox && \
     git clone https://github.com/Ekultek/Pybelt /opt/Pybelt && \
     git clone https://github.com/nccgroup/redsnarf /opt/redsnarf && \
     git clone https://github.com/FreelancePentester/ddos-script /opt/ddos-script
-
-# exploit development library
-RUN pip install pwntools
 
 # MITM, ARP poisoning/spoofing, Sniffing
 ADD bin/empty /usr/local/bin/empty
@@ -70,27 +108,29 @@ RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 RUN apt-get install -y hydra john crunch cewl
 RUN git clone https://github.com/Mebus/cupp /opt/cupp && \
     git clone https://github.com/k4m4/dymerge.git /opt/dymerge && \
+    git clone https://github.com/AlessandroZ/LaZagne && \
     git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
 
-# Hash
-RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
+# Check passwords
+RUN git clone https://github.com/lightos/credmap /opt/credmap
 
-# Scanner
-RUN apt-get install -y arachni nikto wpscan wapiti w3af
+# Hash Manipulation
+RUN git clone https://github.com/ekultek/dagon.git /opt/dagon && \
+    gem install hashdata
+
+# Vulnerability Scanner (SQL, XSS, LFI, RFI etc...)
+RUN apt-get install -y arachni nikto wpscan wapiti w3af fimap
 RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone https://github.com/faizann24/XssPy /opt/XssPy && \
     git clone https://github.com/UltimateHackers/Striker && \
-    git clone https://github.com/golismero/golismero/ /opt/golismero
-
-# SQL Injection
-RUN apt-get install -y sqlmap themole
-
-# SQL, XSS, LFI, RFI sanner
-RUN apt-get install -y fimap
-RUN git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install && \
+    git clone https://github.com/golismero/golismero/ /opt/golismero && \
+    git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install && \
     git clone https://github.com/D35m0nd142/LFISuite /opt/LFISuite && \
     git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus && \
     git clone https://github.com/WhitewidowScanner/whitewidow /opt/whitewidow
+
+# SQL Injection
+RUN apt-get install -y sqlmap themole
 
 # Phishing
 RUN apt-get install -y httrack
@@ -112,30 +152,6 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
 # https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
-# Footprinting / Information-Gathering / OSINT / Fingerprint
-# RUN git clone https://github.com/seifreed/dirb /opt/dirb
-RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
-RUN git clone https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
-RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
-RUN pip install shodan
-RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
-    git clone https://github.com/penafieljlm/inquisitor /opt/inquisitor && \
-    git clone https://github.com/maldevel/EmailHarvester /opt/EmailHarvester && \
-    git clone https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail && \
-    git clone https://github.com/HatBashBR/ShodanHat /opt/ShodanHat && \
-    git clone https://github.com/graniet/operative-framework /opt/operative-framework && \
-    git clone https://github.com/m4ll0k/Infoga.git /opt/Infoga && \
-    git clone https://github.com/kahunalu/pwnbin.git /opt/pwnbin && \
-    git clone https://github.com/vesche/scanless /opt/scanless && \
-    git clone https://github.com/techgaun/github-dorks /opt/github-dorks && \
-    git clone https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
-    git clone https://github.com/TheRook/subbrute /opt/subbrute && \
-    git clone https://github.com/utiso/dorkbot /opt/dorkbot && \
-    git clone https://github.com/aancw/Belati /opt/Belati
-RUN apt-get install -y metagoofil
-ADD bin/gathering /usr/local/bin/gathering
-ADD bin/crawler.py /usr/local/bin/crawler.py
-
 # Wireless
 # RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 # git clone https://github.com/chrizator/netattack2/ /opt/netattack2
@@ -148,35 +164,30 @@ RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/
     git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
 
 # Reverse Engineering
-RUN apt-get install -y apktool set
-RUN git clone https://github.com/radare/radare2 /opt/radare2
+RUN apt-get install -y apktool set && \
+    git clone https://github.com/radare/radare2 /opt/radare2
 
-# Automated Backdoor
+# Backdoor / Remote Access Trojan
 # RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
-RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat
-RUN echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path
-RUN chmod +x /opt/TheFatRat/fatrat
-RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk
+RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat && \
+    echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path && \
+    chmod +x /opt/TheFatRat/fatrat
 RUN git clone https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
-RUN sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
-RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt
-RUN sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings
-RUN sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
-RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit # For Microsoft
-RUN git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads
-RUN git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS
+RUN git clone https://github.com/dana-at-cp/backdoor-apk /opt/backdoor-apk && \
+    sed -i -e 's/ZIPALIGN=.*$/ZIPALIGN=\/usr\/bin\/zipalign/g' /opt/backdoor-apk/backdoor-apk/backdoor-apk.sh
+RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt && \
+    sed -i -e 's/BASH_TRANSFORMATION=NO/BASH_TRANSFORMATION=YES/g' /opt/backdoorppt/settings && \
+    sed -i -e 's/RESOURCEHACKER_BYPASS=NO/RESOURCEHACKER_BYPASS=YES/g' /opt/backdoorppt/settings
+RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit && \
+    git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads && \
+    git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS && \
+    git clone https://github.com/vesche/basicRAT /opt/basicRAT
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
 RUN git clone https://github.com/vulnersCom/getsploit /opt/getsploit && \
     git clone https://github.com/1N3/findsploit /opt/findsploit && \
     git clone https://github.com/MalwareReverseBrasil/malwaresearch /opt/malwaresearch
-
-# Check passwords
-RUN git clone https://github.com/lightos/credmap /opt/credmap
-
-# Trojan
-RUN git clone https://github.com/vesche/basicRAT /opt/basicRAT
 
 # Post exploitation
 RUN git clone https://github.com/nathanlopez/Stitch /opt/Stitch && \
@@ -194,25 +205,24 @@ RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/Auto
 RUN apt-get install -y extract
 
 # Geolocalisation
-RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation
-RUN cd /opt/IPGeoLocation && pip3 install -r requirements.txt && chmod +x /opt/IPGeoLocation/ipgeolocation.py
+RUN git clone https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation && \
+    cd /opt/IPGeoLocation && \
+    pip3 install -r requirements.txt && \
+    chmod +x /opt/IPGeoLocation/ipgeolocation.py
 
 # Shellcode
 RUN git clone https://github.com/reyammer/shellnoob /opt/shellnoob
 
 # Wordpress
-RUN git clone https://github.com/n00py/WPForce /opt/WPForce
-RUN git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku
+RUN git clone https://github.com/n00py/WPForce /opt/WPForce && \
+    git clone https://github.com/m4ll0k/WPSeku /opt/WPSeku
 
-# crimeflare
-RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud
-RUN git clone https://github.com/m0rtem/CloudFail /opt/CloudFail
+# Bypass CloudFlare
+RUN git clone https://github.com/HatBashBR/HatCloud /opt/HatCloud && \
+    git clone https://github.com/m0rtem/CloudFail /opt/CloudFail
 
 # Steganography
 RUN git clone https://github.com/solusipse/spectrology /opt/spectrology
-
-# Hash Identifying tool
-RUN gem install hashdata
 
 # Honeypot
 RUN git clone https://github.com/droberson/ssh-honeypot /opt/ssh-honeypot && \
@@ -224,29 +234,15 @@ RUN apt-get install -y netcat
 # Detect WAF
 RUN git clone https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 
-# Remove metadata
+# Remove file metadata
 RUN apt-get install -y mat
 
-# Evasion
-RUN git clone https://github.com/jbreed/apkwash /opt/apkwash
+# AV Evasion, Dropper
+RUN git clone https://github.com/jbreed/apkwash /opt/apkwash && \
+    git clone https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
 
-# Dropper
-RUN git clone https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
-
-# Cheats
-RUN pip install cheat
-ADD .cheat/ /root/.cheat/
-RUN echo "_cmpl_cheat() {\n\
-    reply=($(cheat -l | cut -d' ' -f1))\n\
-}\n\
-compctl -K _cmpl_cheat cheat\n"\
->> /root/.zshrc
-
-RUN apt-get install -y nodejs-legacy npm && \
-    npm cache clean -f && \
-    npm install -g n && \
-    n stable && \
-    npm i -g Brosec
+################################################################################################################################
+################################################################################################################################
 
 # Clean
 RUN apt-get autoremove -y
