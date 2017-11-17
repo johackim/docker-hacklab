@@ -15,7 +15,7 @@ $ docker run --name hacklab --net=host --privileged -it ston3o/hacklab zsh
 https://github.com/ston3o/docker-hacklab
 ```
 
-Run other vuln scanners
+Run other vuln scanners with docker
 ---
 
 ```
