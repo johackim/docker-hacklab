@@ -100,8 +100,8 @@ RUN apt-get install -y metasploit-framework websploit && \
 # MITM, ARP poisoning/spoofing, Sniffing
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
-    git clone https://github.com/evilsocket/bettercap && \
-    git clone https://github.com/brannondorsey/mitm-router && \
+    git clone https://github.com/evilsocket/bettercap /opt/bettercap && \
+    git clone https://github.com/brannondorsey/mitm-router /opt/mitm-router && \
     git clone https://github.com/LionSec/xerosploit /opt/xerosploit
 
 # Spoofing email
@@ -113,7 +113,7 @@ RUN git clone https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 RUN apt-get install -y hydra john crunch cewl
 RUN git clone https://github.com/Mebus/cupp /opt/cupp && \
     git clone https://github.com/k4m4/dymerge.git /opt/dymerge && \
-    git clone https://github.com/AlessandroZ/LaZagne && \
+    git clone https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
     git clone https://github.com/LandGrey/pydictor.git /opt/pydictor
 
 # Check passwords
@@ -127,7 +127,7 @@ RUN git clone https://github.com/ekultek/dagon.git /opt/dagon && \
 RUN apt-get install -y arachni nikto wpscan wapiti w3af fimap
 RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone https://github.com/faizann24/XssPy /opt/XssPy && \
-    git clone https://github.com/UltimateHackers/Striker && \
+    git clone https://github.com/UltimateHackers/Striker /opt/Striker && \
     git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && \
     git clone https://github.com/D35m0nd142/LFISuite /opt/LFISuite && \
     git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus && \
@@ -184,7 +184,7 @@ RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit && \
     git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads && \
     git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS && \
     git clone https://github.com/vesche/basicRAT /opt/basicRAT && \
-    git clone https://github.com/n1nj4sec/pupy.git
+    git clone https://github.com/n1nj4sec/pupy.git /opt/pupy
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -202,7 +202,7 @@ RUN git clone https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/Auto
     git clone https://github.com/rasta-mouse/Sherlock /opt/Sherlock && \
     git clone https://github.com/AlessandroZ/BeRoot /opt/BeRoot && \
     git clone https://github.com/NullArray/MIDA-Multitool.git /opt/MIDA && \
-    git clone https://github.com/nilotpalbiswas/Auto-Root-Exploit
+    git clone https://github.com/nilotpalbiswas/Auto-Root-Exploit /opt/Auto-Root-Exploit
 
 # Forensic
 RUN apt-get install -y extract
@@ -245,10 +245,10 @@ RUN git clone https://github.com/jbreed/apkwash /opt/apkwash && \
     git clone https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
 
 # Disassembler
-RUN git clone https://github.com/intezer/docker-ida
+RUN git clone https://github.com/intezer/docker-ida /opt/docker-ida
 
 # Fuzzing
-RUN git clone https://github.com/joxeankoret/nightmare
+RUN git clone https://github.com/joxeankoret/nightmare /opt/nightmare
 
 # Paquet manipulation
 RUN apt-get install -y hping3 scapy
