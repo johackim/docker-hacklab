@@ -130,13 +130,13 @@ RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
 RUN apt-get install -y sqlmap themole
 
 # Phishing
-RUN apt-get install -y httrack
-RUN git clone https://github.com/kgretzky/evilginx /opt/evilginx
+RUN apt-get install -y httrack && \
+    git clone https://github.com/kgretzky/evilginx /opt/evilginx
 
-# DDOS Tools
-RUN curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/ston3o/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris
-RUN apt-get install t50
-RUN git clone https://github.com/Souhardya/Warchild /opt/Warchild
+# DOS Tools
+RUN apt-get install t50 && \
+    curl -o /usr/local/bin/slowloris https://raw.githubusercontent.com/ston3o/dotfiles/master/bin/slowloris.pl && chmod +x /usr/local/bin/slowloris && \
+    git clone https://github.com/Souhardya/Warchild /opt/Warchild
 
 # Kickthemout
 RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
@@ -146,16 +146,15 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
     chmod +x kickthemout.py
 
 # NMAP NSE Script vulscan
-# https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
-RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
+RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/ && \
+    wget -P /usr/share/nmap/scripts/ https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
 
 # Wireless, WEP WPA
-# RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
-# git clone https://github.com/chrizator/netattack2/ /opt/netattack2
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt && \
     git clone https://github.com/FluxionNetwork/fluxion /opt/fluxion && \
     git clone https://github.com/chrizator/netattack /opt/netattack && \
+    git clone https://github.com/chrizator/netattack2/ /opt/netattack2 && \
     git clone https://github.com/s0lst1c3/eaphammer /opt/eaphammer && \
     git clone https://github.com/P0cL4bs/WiFi-Pumpkin /opt/Wifi-Pumpkin && \
     git clone https://github.com/M1ND-B3ND3R/BoopSuite /opt/BoopSuite
@@ -165,7 +164,6 @@ RUN apt-get install -y apktool set && \
     git clone https://github.com/radare/radare2 /opt/radare2
 
 # Backdoor / Remote Access Trojan
-# RUN git clone --recursive https://github.com/n1nj4sec/pupy.git /opt/pupy && cd /opt/pupy && pip install -r pupy/requirements.txt
 RUN git clone https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat && \
     echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path && \
     chmod +x /opt/TheFatRat/fatrat
@@ -178,7 +176,8 @@ RUN git clone https://github.com/r00t-3xp10it/backdoorppt /opt/backdoorppt && \
 RUN git clone https://github.com/Screetsec/microsploit /opt/microsploit && \
     git clone https://github.com/nccgroup/Winpayloads /opt/Winpayloads && \
     git clone https://github.com/tiagorlampert/CHAOS /opt/CHAOS && \
-    git clone https://github.com/vesche/basicRAT /opt/basicRAT
+    git clone https://github.com/vesche/basicRAT /opt/basicRAT && \
+    git clone https://github.com/n1nj4sec/pupy.git
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
