@@ -120,7 +120,6 @@ RUN apt-get install -y arachni nikto wpscan wapiti w3af fimap
 RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone https://github.com/faizann24/XssPy /opt/XssPy && \
     git clone https://github.com/UltimateHackers/Striker && \
-    git clone https://github.com/golismero/golismero/ /opt/golismero && \
     git clone https://github.com/v3n0m-Scanner/V3n0M-Scanner /opt/V3n0M-Scanner && cd /opt/V3n0M-Scanner && python3.5 setup.py install && \
     git clone https://github.com/D35m0nd142/LFISuite /opt/LFISuite && \
     git clone https://github.com/P0cL4bs/Kadimus /opt/Kadimus && \
