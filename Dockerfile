@@ -1,5 +1,9 @@
 FROM kalilinux/kali-linux-docker
 
+########
+# INIT #
+########
+
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
@@ -8,36 +12,33 @@ RUN echo 'deb http://old.kali.org/kali sana main non-free contrib' >> /etc/apt/s
 RUN apt-get update --fix-missing
 
 # Locale
-RUN apt-get install -y locales
-RUN sed -i -e 's/\# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
+RUN apt-get install -y locales && sed -i -e 's/\# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
-RUN locale-gen
 
 # Utils
-RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh ncdu
-RUN git clone https://github.com/ston3o/oh-my-zsh ~/.oh-my-zsh
-RUN cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-RUN sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc
-RUN apt-file update
+RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh ncdu && \
+    git clone https://github.com/ston3o/oh-my-zsh ~/.oh-my-zsh && \
+    cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc && \
+    sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="red"/g' ~/.zshrc && \
+    apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go
-RUN apt-get install -y wine
-RUN easy_install3 pip
-RUN git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
+RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go && \
+    apt-get install -y wine && \
+    easy_install3 pip && \
+    git clone https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
 
 # MOTD
-RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc
-RUN apt-get install -y figlet
-RUN figlet -f small "HACKLAB" > /etc/motd
-RUN sed -i '$ d' /etc/motd && echo "https://github.com/ston3o/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> ~/.zshrc && \
+    apt-get install -y figlet && \
+    figlet -f small "HACKLAB" > /etc/motd && \
+    sed -i '$ d' /etc/motd && echo "https://github.com/ston3o/docker-hacklab" >> /etc/motd && echo '\n' >> /etc/motd
 
 # Cheats
 RUN pip install cheat
-ADD .cheat/ /root/.cheat/
 RUN echo "_cmpl_cheat() {\n\
     reply=($(cheat -l | cut -d' ' -f1))\n\
 }\n\
@@ -49,8 +50,18 @@ RUN apt-get install -y nodejs-legacy npm && \
     n stable && \
     npm i -g Brosec
 
-################################################################################################################################
-################################################################################################################################
+# Add files
+ADD .cheat/ /root/.cheat/
+ADD wordlists /usr/share/
+ADD README.md /root/
+ADD Dockerfile /root/
+ADD bin/* /usr/local/bin/
+
+WORKDIR /root
+
+#################
+# INSTALL TOOLS #
+#################
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
@@ -73,8 +84,6 @@ RUN git clone https://github.com/maurosoria/dirsearch /opt/dirsearch && \
     git clone https://github.com/DataSploit/datasploit /opt/datasploit && \
     git clone https://github.com/aancw/Belati /opt/Belati
 RUN apt-get install -y metagoofil
-ADD bin/gathering /usr/local/bin/gathering
-ADD bin/crawler.py /usr/local/bin/crawler.py
 
 # Pentest Framework
 # RUN pip install pwntools
@@ -89,7 +98,6 @@ RUN apt-get install -y metasploit-framework websploit && \
     git clone https://github.com/FreelancePentester/ddos-script /opt/ddos-script
 
 # MITM, ARP poisoning/spoofing, Sniffing
-ADD bin/empty /usr/local/bin/empty
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
     git clone https://github.com/evilsocket/bettercap && \
@@ -245,16 +253,10 @@ RUN git clone https://github.com/joxeankoret/nightmare
 # Paquet manipulation
 RUN apt-get install -y hping3 scapy
 
-################################################################################################################################
-################################################################################################################################
+#########
+# CLEAN #
+#########
 
-# Clean
 RUN apt-get autoremove -y && \
     rm -rf /tmp/* && \
     rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
-
-ADD wordlists /usr/share/
-ADD README.md /root/
-ADD Dockerfile /root/
-
-WORKDIR /root
