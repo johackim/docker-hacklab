@@ -76,9 +76,6 @@ RUN apt-get install -y metagoofil
 ADD bin/gathering /usr/local/bin/gathering
 ADD bin/crawler.py /usr/local/bin/crawler.py
 
-# Paquet manipulation
-RUN apt-get install -y hping3 scapy
-
 # Pentest Framework
 # RUN pip install pwntools
 RUN apt-get install -y metasploit-framework websploit && \
@@ -152,7 +149,7 @@ RUN git clone https://github.com/k4m4/kickthemout /opt/kickthemout && \
 # https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/
 
-# Wireless
+# Wireless, WEP WPA
 # RUN git clone https://github.com/McflyMarty/fluxion /opt/fluxion
 # git clone https://github.com/chrizator/netattack2/ /opt/netattack2
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
@@ -241,15 +238,25 @@ RUN apt-get install -y mat
 RUN git clone https://github.com/jbreed/apkwash /opt/apkwash && \
     git clone https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
 
+# Disassembler
+RUN git clone https://github.com/intezer/docker-ida
+
+# Fuzzing
+RUN git clone https://github.com/joxeankoret/nightmare
+
+# Paquet manipulation
+RUN apt-get install -y hping3 scapy
+
 ################################################################################################################################
 ################################################################################################################################
 
 # Clean
-RUN apt-get autoremove -y
-RUN rm -rf /tmp/*
-RUN rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
+RUN apt-get autoremove -y && \
+    rm -rf /tmp/* && \
+    rm -rf /var/lib/{apt,dpkg,cache,log,tmp}/*
 
 ADD wordlists /usr/share/
 ADD README.md /root/
 ADD Dockerfile /root/
+
 WORKDIR /root
