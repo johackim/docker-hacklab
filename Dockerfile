@@ -75,9 +75,12 @@ RUN git clone https://github.com/Mebus/cupp /opt/cupp && \
 # Hash
 RUN git clone https://github.com/ekultek/dagon.git /opt/dagon
 
-# Web Scanner
+# Scanner
 RUN apt-get install -y arachni nikto wpscan wapiti w3af
-RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti
+RUN git clone https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
+    git clone https://github.com/faizann24/XssPy /opt/XssPy && \
+    git clone https://github.com/UltimateHackers/Striker && \
+    git clone https://github.com/golismero/golismero/ /opt/golismero
 
 # SQL Injection
 RUN apt-get install -y sqlmap themole
