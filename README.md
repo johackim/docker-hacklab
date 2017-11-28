@@ -53,6 +53,7 @@ Exploit database
 - https://nvd.nist.gov/
 - http://www.securityfocus.com/bid/
 - https://www.exploit-db.com/
+- http://www.cvedetails.com/
 
 Search Engines
 ---
