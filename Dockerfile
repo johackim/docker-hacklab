@@ -235,6 +235,9 @@ RUN git clone --depth=1 https://github.com/droberson/ssh-honeypot /opt/ssh-honey
 # Reverse shell
 RUN apt-get install -y netcat
 
+# Tunnel
+RUN git clone --depth=1 https://github.com/yarrick/iodine /opt/iodine
+
 # Detect WAF
 RUN git clone --depth=1 https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 
