@@ -206,6 +206,7 @@ RUN git clone --depth=1 https://github.com/ngalongc/AutoLocalPrivilegeEscalation
 
 # Forensic
 RUN apt-get install -y extract
+RUN git clone --depth=1 https://github.com/volatilityfoundation/volatility /opt/volatility
 
 # Geolocalisation
 RUN git clone --depth=1 https://github.com/maldevel/IPGeoLocation /opt/IPGeoLocation && \
