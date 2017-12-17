@@ -7,7 +7,7 @@ Quick Start
 ---
 
 ```
-$ docker run --name hacklab --net=host --privileged -it ston3o/hacklab zsh
+$ docker run --name hacklab --net=host --privileged -it ston3o/docker-hacklab zsh
  _  _   _   ___ _  ___      _   ___
 | || | /_\ / __| |/ / |    /_\ | _ )
 | __ |/ _ \ (__| ' <| |__ / _ \| _ \
