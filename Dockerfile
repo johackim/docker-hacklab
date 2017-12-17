@@ -170,7 +170,7 @@ RUN git clone --depth=1 https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi &
 RUN apt-get install -y apktool set && \
     git clone --depth=1 https://github.com/radare/radare2 /opt/radare2
 
-# Backdoor / Remote Access Trojan
+# Backdoor / Remote Access Trojan (RAT)
 RUN git clone --depth=1 https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat && \
     echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path && \
     chmod +x /opt/TheFatRat/fatrat
@@ -184,7 +184,8 @@ RUN git clone --depth=1 https://github.com/Screetsec/microsploit /opt/microsploi
     git clone --depth=1 https://github.com/nccgroup/Winpayloads /opt/Winpayloads && \
     git clone --depth=1 https://github.com/tiagorlampert/CHAOS /opt/CHAOS && \
     git clone --depth=1 https://github.com/vesche/basicRAT /opt/basicRAT && \
-    git clone --depth=1 https://github.com/n1nj4sec/pupy.git /opt/pupy
+    git clone --depth=1 https://github.com/n1nj4sec/pupy.git /opt/pupy && \
+    git clone --depth=1 https://github.com/quasar/QuasarRAT /opt/QuasarRAT
 
 # Search exploit
 RUN apt-get install -y exploitdb # `searchsploit`
@@ -248,8 +249,9 @@ RUN apt-get install -y mat
 RUN git clone --depth=1 https://github.com/jbreed/apkwash /opt/apkwash && \
     git clone --depth=1 https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
 
-# Disassembler
-RUN git clone --depth=1 https://github.com/intezer/docker-ida /opt/docker-ida
+# Disassembler / Decompiler
+RUN git clone --depth=1 https://github.com/intezer/docker-ida /opt/docker-ida && \
+    git clone --depth=1 https://github.com/avast-tl/retdec /opt/retdec
 
 # Fuzzing
 RUN git clone --depth=1 https://github.com/joxeankoret/nightmare /opt/nightmare
