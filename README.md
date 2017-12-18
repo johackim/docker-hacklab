@@ -3,6 +3,8 @@ Docker Hacklab
 
 > My personal hacklab, create your own.
 
+French article: https://blog.ston3o.me/creer-hacklab-virtuel-docker/
+
 Quick Start
 ---
 
