@@ -97,14 +97,14 @@ RUN apt-get install -y metasploit-framework websploit && \
     git clone --depth=1 https://github.com/nccgroup/redsnarf /opt/redsnarf && \
     git clone --depth=1 https://github.com/FreelancePentester/ddos-script /opt/ddos-script
 
-# MITM, ARP poisoning/spoofing, Sniffing
+# MITM / ARP poisoning / Spoofing / Sniffing
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
 RUN git clone --depth=1 https://github.com/r00t-3xp10it/morpheus /opt/morpheus && \
     git clone --depth=1 https://github.com/evilsocket/bettercap /opt/bettercap && \
     git clone --depth=1 https://github.com/brannondorsey/mitm-router /opt/mitm-router && \
     git clone --depth=1 https://github.com/LionSec/xerosploit /opt/xerosploit
 
-# Spoofing email
+# Email Spoofing
 RUN apt-get install -y sendemail
 RUN git clone --depth=1 https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
@@ -114,10 +114,8 @@ RUN apt-get install -y hydra john crunch cewl
 RUN git clone --depth=1 https://github.com/Mebus/cupp /opt/cupp && \
     git clone --depth=1 https://github.com/k4m4/dymerge.git /opt/dymerge && \
     git clone --depth=1 https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
-    git clone --depth=1 https://github.com/LandGrey/pydictor.git /opt/pydictor
-
-# Check passwords
-RUN git clone --depth=1 https://github.com/lightos/credmap /opt/credmap
+    git clone --depth=1 https://github.com/LandGrey/pydictor.git /opt/pydictor && \
+    git clone --depth=1 https://github.com/lightos/credmap /opt/credmap
 
 # Hash Manipulation
 RUN git clone --depth=1 https://github.com/ekultek/dagon.git /opt/dagon && \
@@ -156,7 +154,7 @@ RUN git clone --depth=1 https://github.com/k4m4/kickthemout /opt/kickthemout && 
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/ && \
     wget -P /usr/share/nmap/scripts/ https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
 
-# Wireless, WEP WPA
+# Wireless networks, WEP WPA
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
 RUN git clone --depth=1 https://github.com/kylemcdonald/FreeWifi /opt/FreeWifi && cd /opt/FreeWifi && pip install -r requirements.txt && \
     git clone --depth=1 https://github.com/FluxionNetwork/fluxion /opt/fluxion && \
@@ -245,7 +243,7 @@ RUN git clone --depth=1 https://github.com/EnableSecurity/wafw00f /opt/wafw00f
 # Remove file metadata
 RUN apt-get install -y mat
 
-# AV Evasion, Dropper
+# AV Evasion / Dropper
 RUN git clone --depth=1 https://github.com/jbreed/apkwash /opt/apkwash && \
     git clone --depth=1 https://github.com/D4Vinci/Dr0p1t-Framework /opt/Dr0p1t-Framework
 
