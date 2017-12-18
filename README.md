@@ -1,7 +1,7 @@
 Docker Hacklab
 ===
 
-> My personal hacklab
+> My personal hacklab, create your own.
 
 Quick Start
 ---
