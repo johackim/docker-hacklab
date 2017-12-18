@@ -15,35 +15,21 @@ $ docker run --name hacklab --net=host --privileged -it ston3o/docker-hacklab zs
 https://github.com/ston3o/docker-hacklab
 ```
 
-Run other vuln scanners with docker
+Other useful docker commands
 ---
 
-```
+```bash
+# Vulnerability scanners
 $ docker run -d --name nessus -p 8834:8834 infoslack/nessus
 $ docker run -d --name openvas -p 443:443 -p 9390:9390 -p 9391:9391 mikesplain/openvas
-$ docker run --rm -it menzo/sn1per-docker sniper example.com
-```
+$ docker run --rm -it menzo/sn1per-docker sniper <example.com>
 
-Run vulnerable web application
----
-
-```
+# Run vulnerable web application
 $ docker run -d --name dvwa -it -p 80:80 vulnerables/web-dvwa
+
+# Search Mobile Vulns
+$ docker run -d --name mobsf -it -p 8000:8000 opensecurity/mobsf:latest
 ```
-
-Search Mobile Vulns
----
-
-```
-$ docker run -i -t -p 8000:8000 opensecurity/mobsf:latest
-```
-
-Doxing/OSINT
----
-
-- http://www.peekyou.com/
-- https://pipl.com/
-- https://iplogger.org/
 
 Exploit database
 ---
@@ -61,6 +47,13 @@ Search Engines
 - https://www.shodan.io/
 - https://censys.io/
 - https://www.zoomeye.org/
+
+Doxing / OSINT
+---
+
+- http://www.peekyou.com/
+- https://pipl.com/
+- https://iplogger.org/
 
 Other resources
 ---
