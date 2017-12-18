@@ -15,6 +15,14 @@ $ docker run --name hacklab --net=host --privileged -it ston3o/docker-hacklab zs
 https://github.com/ston3o/docker-hacklab
 ```
 
+Alias
+---
+
+```bash
+# ~/.bashrc
+alias hacklab='docker run -d --name hacklab --net=host --privileged=true -v /tmp/:/mnt -it ston3o/docker-hacklab zsh > /dev/null 2>&1; docker start hacklab > /dev/null; docker exec -it hacklab zsh'
+```
+
 Other useful docker commands
 ---
 
