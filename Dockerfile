@@ -233,6 +233,7 @@ RUN git clone --depth=1 https://github.com/droberson/ssh-honeypot /opt/ssh-honey
 
 # Reverse shell
 RUN apt-get install -y netcat
+RUN git clone --depth=1 https://github.com/mthbernardes/rsg /opt/rsg
 
 # Tunnel
 RUN git clone --depth=1 https://github.com/yarrick/iodine /opt/iodine
