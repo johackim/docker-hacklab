@@ -258,6 +258,9 @@ RUN git clone --depth=1 https://github.com/joxeankoret/nightmare /opt/nightmare
 # Paquet manipulation
 RUN apt-get install -y hping3 scapy
 
+# C&C
+RUN git clone --depth=1 https://github.com/Ne0nd0g/merlin /opt/merlin
+
 #########
 # CLEAN #
 #########
