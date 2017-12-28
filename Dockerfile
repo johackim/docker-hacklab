@@ -152,7 +152,8 @@ RUN git clone --depth=1 https://github.com/k4m4/kickthemout /opt/kickthemout && 
 
 # NMAP NSE Script vulscan
 RUN curl -s http://www.computec.ch/projekte/vulscan/download/nmap_nse_vulscan-2.0.tar.gz | tar xzvf - -C /usr/share/nmap/scripts/ && \
-    wget -P /usr/share/nmap/scripts/ https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse
+    wget -P /usr/share/nmap/scripts/ https://raw.githubusercontent.com/cldrn/nmap-nse-scripts/master/scripts/smb-vuln-ms17-010.nse && \
+    wget -P /usr/share/nmap/scripts/ https://raw.githubusercontent.com/vulnersCom/nmap-vulners/master/vulners.nse
 
 # Wireless networks, WEP WPA
 RUN apt-get install -y wifite wifiphisher mdk3 tshark
