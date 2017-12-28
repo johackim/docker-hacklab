@@ -239,7 +239,8 @@ RUN git clone --depth=1 https://github.com/mthbernardes/rsg /opt/rsg
 RUN git clone --depth=1 https://github.com/yarrick/iodine /opt/iodine
 
 # Detect WAF
-RUN git clone --depth=1 https://github.com/EnableSecurity/wafw00f /opt/wafw00f
+RUN git clone --depth=1 https://github.com/EnableSecurity/wafw00f /opt/wafw00f && \
+    git clone --depth=1 https://github.com/Ekultek/WhatWaf /opt/WhatWaf
 
 # Remove file metadata
 RUN apt-get install -y mat
