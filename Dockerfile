@@ -95,7 +95,8 @@ RUN apt-get install -y metasploit-framework websploit && \
     git clone --depth=1 https://github.com/leviathan-framework/leviathan /opt/leviathan && \
     git clone --depth=1 https://github.com/Ekultek/Pybelt /opt/Pybelt && \
     git clone --depth=1 https://github.com/nccgroup/redsnarf /opt/redsnarf && \
-    git clone --depth=1 https://github.com/FreelancePentester/ddos-script /opt/ddos-script
+    git clone --depth=1 https://github.com/FreelancePentester/ddos-script /opt/ddos-script && \
+    git clone --depth=1 https://github.com/Manisso/fsociety /opt/fsociety
 
 # MITM / ARP poisoning / Spoofing / Sniffing
 RUN apt-get install -y mitmproxy dsniff mitmf tcpdump ngrep
