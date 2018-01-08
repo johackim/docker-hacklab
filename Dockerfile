@@ -111,7 +111,7 @@ RUN git clone --depth=1 https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 
 # Crack password
 # RUN git clone --depth=1 https://github.com/berzerk0/Probable-Wordlists /opt/Probable-Wordlists
-RUN apt-get install -y hydra john crunch cewl
+RUN apt-get install -y hydra john crunch cewl fcrackzip
 RUN git clone --depth=1 https://github.com/Mebus/cupp /opt/cupp && \
     git clone --depth=1 https://github.com/k4m4/dymerge.git /opt/dymerge && \
     git clone --depth=1 https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
