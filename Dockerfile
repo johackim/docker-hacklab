@@ -263,7 +263,8 @@ RUN git clone --depth=1 https://github.com/joxeankoret/nightmare /opt/nightmare
 RUN apt-get install -y hping3 scapy
 
 # C&C
-RUN git clone --depth=1 https://github.com/Ne0nd0g/merlin /opt/merlin
+RUN git clone --depth=1 https://github.com/Ne0nd0g/merlin /opt/merlin && \
+    git clone --depth=1 https://github.com/zerosum0x0/koadic /opt/koadic
 
 # botnet
 RUN git clone --depth=1 https://github.com/sweetsoftware/Ares /opt/Ares
