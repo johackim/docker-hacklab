@@ -90,6 +90,7 @@ Other resources
 - http://www.funinformatique.com/google-dorks-hackez-requete-google/
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+- https://github.com/cSploit/android
 - https://github.com/enaqx/awesome-pentest
 - https://github.com/Hack-with-Github/Awesome-Hacking
 - https://github.com/sindresorhus/awesome#security
