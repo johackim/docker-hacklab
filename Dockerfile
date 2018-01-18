@@ -55,6 +55,7 @@ ADD .cheat/ /root/.cheat/
 ADD wordlists /usr/share/
 ADD README.md /root/
 ADD Dockerfile /root/
+ADD cyberchef.html /root/
 ADD bin/* /usr/local/bin/
 
 WORKDIR /root
