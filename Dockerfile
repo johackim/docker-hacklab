@@ -52,6 +52,7 @@ RUN apt-get install -y nodejs-legacy npm && \
 
 # Add files
 ADD .cheat/ /root/.cheat/
+ADD .vimrc /root/
 ADD wordlists /usr/share/
 ADD README.md /root/
 ADD Dockerfile /root/
