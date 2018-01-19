@@ -66,7 +66,7 @@ WORKDIR /root
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
 RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
-RUN git clone --depth=1 https://github.com/1N3/Sn1per.git /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
+RUN git clone --depth=1 https://github.com/1N3/Sn1per /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 RUN pip install shodan
 RUN git clone --depth=1 https://github.com/maurosoria/dirsearch /opt/dirsearch && \
@@ -75,8 +75,8 @@ RUN git clone --depth=1 https://github.com/maurosoria/dirsearch /opt/dirsearch &
     git clone --depth=1 https://github.com/killswitch-GUI/SimplyEmail/ /opt/SimplyEmail && \
     git clone --depth=1 https://github.com/HatBashBR/ShodanHat /opt/ShodanHat && \
     git clone --depth=1 https://github.com/graniet/operative-framework /opt/operative-framework && \
-    git clone --depth=1 https://github.com/m4ll0k/Infoga.git /opt/Infoga && \
-    git clone --depth=1 https://github.com/kahunalu/pwnbin.git /opt/pwnbin && \
+    git clone --depth=1 https://github.com/m4ll0k/Infoga /opt/Infoga && \
+    git clone --depth=1 https://github.com/kahunalu/pwnbin /opt/pwnbin && \
     git clone --depth=1 https://github.com/vesche/scanless /opt/scanless && \
     git clone --depth=1 https://github.com/techgaun/github-dorks /opt/github-dorks && \
     git clone --depth=1 https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
@@ -90,14 +90,14 @@ RUN apt-get install -y metagoofil
 # RUN pip install pwntools
 RUN apt-get install -y metasploit-framework websploit && \
     git clone --depth=1 https://github.com/x3omdax/PenBox /opt/PenBox && \
-    git clone --depth=1 https://github.com/golismero/golismero.git /opt/golismero && cd /opt/golismero && pip install -r requirements.txt && \
+    git clone --depth=1 https://github.com/golismero/golismero /opt/golismero && cd /opt/golismero && pip install -r requirements.txt && \
     git clone --depth=1 https://github.com/nil0x42/phpsploit /opt/phpsploit && \
     git clone --depth=1 https://github.com/C0reL0ader/EaST /opt/EaST && \
     git clone --depth=1 https://github.com/leviathan-framework/leviathan /opt/leviathan && \
     git clone --depth=1 https://github.com/Ekultek/Pybelt /opt/Pybelt && \
     git clone --depth=1 https://github.com/nccgroup/redsnarf /opt/redsnarf && \
     git clone --depth=1 https://github.com/FreelancePentester/ddos-script /opt/ddos-script && \
-    git clone --depth=1 https://github.com/viraintel/OWASP-Nettacker.git /opt/OWASP-Nettacker && \
+    git clone --depth=1 https://github.com/viraintel/OWASP-Nettacker /opt/OWASP-Nettacker && \
     git clone --depth=1 https://github.com/Manisso/fsociety /opt/fsociety
 
 # MITM / ARP poisoning / Spoofing / Sniffing
@@ -115,13 +115,13 @@ RUN git clone --depth=1 https://github.com/BishopFox/spoofcheck /opt/spoofcheck
 # RUN git clone --depth=1 https://github.com/berzerk0/Probable-Wordlists /opt/Probable-Wordlists
 RUN apt-get install -y hydra john crunch cewl fcrackzip
 RUN git clone --depth=1 https://github.com/Mebus/cupp /opt/cupp && \
-    git clone --depth=1 https://github.com/k4m4/dymerge.git /opt/dymerge && \
+    git clone --depth=1 https://github.com/k4m4/dymerge /opt/dymerge && \
     git clone --depth=1 https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
-    git clone --depth=1 https://github.com/LandGrey/pydictor.git /opt/pydictor && \
+    git clone --depth=1 https://github.com/LandGrey/pydictor /opt/pydictor && \
     git clone --depth=1 https://github.com/lightos/credmap /opt/credmap
 
 # Hash Manipulation
-RUN git clone --depth=1 https://github.com/ekultek/dagon.git /opt/dagon && \
+RUN git clone --depth=1 https://github.com/ekultek/dagon /opt/dagon && \
     gem install hashdata
 
 # Vulnerability Scanner (SQL, XSS, LFI, RFI etc...)
@@ -173,7 +173,7 @@ RUN apt-get install -y apktool set && \
     git clone --depth=1 https://github.com/radare/radare2 /opt/radare2
 
 # Backdoor / Remote Access Trojan (RAT)
-RUN git clone --depth=1 https://github.com/Screetsec/TheFatRat.git /opt/TheFatRat && \
+RUN git clone --depth=1 https://github.com/Screetsec/TheFatRat /opt/TheFatRat && \
     echo "*\n*\n*\n*\nmsfconsole\nmsfvenom\nbackdoor-factory\nsearchsploit" > /opt/TheFatRat/config/config.path && \
     chmod +x /opt/TheFatRat/fatrat
 RUN git clone --depth=1 https://github.com/jbreed/apkinjector /opt/apkinjector && chmod +x /opt/apkinjector/apkinjector
@@ -186,7 +186,7 @@ RUN git clone --depth=1 https://github.com/Screetsec/microsploit /opt/microsploi
     git clone --depth=1 https://github.com/nccgroup/Winpayloads /opt/Winpayloads && \
     git clone --depth=1 https://github.com/tiagorlampert/CHAOS /opt/CHAOS && \
     git clone --depth=1 https://github.com/vesche/basicRAT /opt/basicRAT && \
-    git clone --depth=1 https://github.com/n1nj4sec/pupy.git /opt/pupy && \
+    git clone --depth=1 https://github.com/n1nj4sec/pupy /opt/pupy && \
     git clone --depth=1 https://github.com/quasar/QuasarRAT /opt/QuasarRAT
 
 # Search exploit
@@ -204,7 +204,7 @@ RUN git clone --depth=1 https://github.com/nathanlopez/Stitch /opt/Stitch && \
 RUN git clone --depth=1 https://github.com/ngalongc/AutoLocalPrivilegeEscalation /opt/AutoLocalPrivilegeEscalation && \
     git clone --depth=1 https://github.com/rasta-mouse/Sherlock /opt/Sherlock && \
     git clone --depth=1 https://github.com/AlessandroZ/BeRoot /opt/BeRoot && \
-    git clone --depth=1 https://github.com/NullArray/MIDA-Multitool.git /opt/MIDA && \
+    git clone --depth=1 https://github.com/NullArray/MIDA-Multitool /opt/MIDA && \
     git clone --depth=1 https://github.com/nilotpalbiswas/Auto-Root-Exploit /opt/Auto-Root-Exploit
 
 # Forensic
