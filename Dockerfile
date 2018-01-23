@@ -87,6 +87,7 @@ RUN git clone --depth=1 https://github.com/maurosoria/dirsearch /opt/dirsearch &
     git clone --depth=1 https://github.com/TheRook/subbrute /opt/subbrute && \
     git clone --depth=1 https://github.com/utiso/dorkbot /opt/dorkbot && \
     git clone --depth=1 https://github.com/DataSploit/datasploit /opt/datasploit && \
+    git clone --depth=1 https://github.com/internetwache/GitTools /opt/GitTools && \
     git clone --depth=1 https://github.com/aancw/Belati /opt/Belati
 RUN apt-get install -y metagoofil
 
