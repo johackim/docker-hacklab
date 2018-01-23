@@ -122,6 +122,7 @@ RUN git clone --depth=1 https://github.com/Mebus/cupp /opt/cupp && \
     git clone --depth=1 https://github.com/k4m4/dymerge /opt/dymerge && \
     git clone --depth=1 https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
     git clone --depth=1 https://github.com/LandGrey/pydictor /opt/pydictor && \
+    git clone --depth=1 https://github.com/UltimateHackers/Hash-Buster && \
     git clone --depth=1 https://github.com/lightos/credmap /opt/credmap
 
 # Hash Manipulation
