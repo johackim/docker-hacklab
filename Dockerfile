@@ -7,6 +7,9 @@ FROM kalilinux/kali-linux-docker
 ENV DEBIAN_FRONTEND noninteractive
 ENV INITRD No
 
+# Term
+ENV TERM xterm
+
 # Packages
 RUN echo 'deb http://old.kali.org/kali sana main non-free contrib' >> /etc/apt/sources.list
 RUN apt-get update --fix-missing
