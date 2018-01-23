@@ -130,7 +130,7 @@ RUN git clone --depth=1 https://github.com/ekultek/dagon /opt/dagon && \
     gem install hashdata
 
 # Vulnerability Scanner (SQL, XSS, LFI, RFI etc...)
-RUN apt-get install -y arachni nikto wpscan wapiti w3af fimap
+RUN apt-get install -y arachni nikto wapiti w3af fimap
 RUN git clone --depth=1 https://github.com/m4ll0k/Spaghetti /opt/Spaghetti && \
     git clone --depth=1 https://github.com/faizann24/XssPy /opt/XssPy && \
     git clone --depth=1 https://github.com/UltimateHackers/Striker /opt/Striker && \
@@ -227,6 +227,7 @@ RUN git clone --depth=1 https://github.com/maldevel/IPGeoLocation /opt/IPGeoLoca
 RUN git clone --depth=1 https://github.com/reyammer/shellnoob /opt/shellnoob
 
 # Wordpress
+RUN apt-get install -y wpscan
 RUN git clone --depth=1 https://github.com/n00py/WPForce /opt/WPForce && \
     git clone --depth=1 https://github.com/m4ll0k/WPSeku /opt/WPSeku
 
