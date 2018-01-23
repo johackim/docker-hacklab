@@ -29,7 +29,7 @@ RUN apt-get install -y vim curl silversearcher-ag apt-file git zsh ncdu && \
     apt-file update
 
 # Dependencies
-RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go whatweb sslyze sslscan wafw00f && \
+RUN apt-get install -y zenity mingw32 xterm gnome-terminal default-jre default-jdk aapt dex2jar zlib1g-dev libmagickwand-dev imagemagick zipalign cowpatty bully lighttpd macchanger php-cgi isc-dhcp-server python3-dev python3-setuptools python-pip libssl-dev xprobe2 golang-go whatweb sslyze sslscan wafw00f dnsenum && \
     apt-get install -y wine && \
     easy_install3 pip && \
     git clone --depth=1 https://github.com/noxxi/p5-io-socket-ssl && cd p5-io-socket-ssl && perl Makefile.PL && make && make install && rm -r /p5-io-socket-ssl
