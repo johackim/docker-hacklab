@@ -277,6 +277,9 @@ RUN git clone --depth=1 https://github.com/Ne0nd0g/merlin /opt/merlin && \
 # botnet
 RUN git clone --depth=1 https://github.com/sweetsoftware/Ares /opt/Ares
 
+# Keylogger
+RUN git clone --depth=1 https://github.com/tiagorlampert/sAINT /opt/sAINT
+
 #########
 # CLEAN #
 #########
