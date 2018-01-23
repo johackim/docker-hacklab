@@ -96,7 +96,6 @@ RUN apt-get install -y metagoofil
 RUN apt-get install -y metasploit-framework websploit && \
     git clone --depth=1 https://github.com/x3omdax/PenBox /opt/PenBox && \
     git clone --depth=1 https://github.com/golismero/golismero /opt/golismero && cd /opt/golismero && pip install -r requirements.txt && \
-    git clone --depth=1 https://github.com/nil0x42/phpsploit /opt/phpsploit && \
     git clone --depth=1 https://github.com/C0reL0ader/EaST /opt/EaST && \
     git clone --depth=1 https://github.com/leviathan-framework/leviathan /opt/leviathan && \
     git clone --depth=1 https://github.com/Ekultek/Pybelt /opt/Pybelt && \
@@ -203,6 +202,7 @@ RUN git clone --depth=1 https://github.com/vulnersCom/getsploit /opt/getsploit &
 # Post exploitation
 RUN git clone --depth=1 https://github.com/nathanlopez/Stitch /opt/Stitch && \
     git clone --depth=1 https://github.com/putterpanda/mimikittenz /opt/mimikittenz && \
+    git clone --depth=1 https://github.com/nil0x42/phpsploit /opt/phpsploit && \
     git clone --depth=1 https://github.com/huntergregal/mimipenguin /opt/mimipenguin
 
 # Privilege escalation
