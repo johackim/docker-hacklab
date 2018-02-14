@@ -102,6 +102,7 @@ RUN apt-get install -y metasploit-framework websploit && \
     git clone --depth=1 https://github.com/nccgroup/redsnarf /opt/redsnarf && \
     git clone --depth=1 https://github.com/FreelancePentester/ddos-script /opt/ddos-script && \
     git clone --depth=1 https://github.com/viraintel/OWASP-Nettacker /opt/OWASP-Nettacker && \
+    git clone --depth=1 https://github.com/Tuhinshubhra/RED_HAWK /opt/RED_HAWK && \
     git clone --depth=1 https://github.com/Manisso/fsociety /opt/fsociety
 
 # MITM / ARP poisoning / Spoofing / Sniffing
@@ -122,7 +123,7 @@ RUN git clone --depth=1 https://github.com/Mebus/cupp /opt/cupp && \
     git clone --depth=1 https://github.com/k4m4/dymerge /opt/dymerge && \
     git clone --depth=1 https://github.com/AlessandroZ/LaZagne /opt/LaZagne && \
     git clone --depth=1 https://github.com/LandGrey/pydictor /opt/pydictor && \
-    git clone --depth=1 https://github.com/UltimateHackers/Hash-Buster && \
+    git clone --depth=1 https://github.com/UltimateHackers/Hash-Buster /opt/Hash-Buster && \
     git clone --depth=1 https://github.com/lightos/credmap /opt/credmap
 
 # Hash Manipulation
@@ -144,6 +145,7 @@ RUN apt-get install -y sqlmap themole
 
 # Phishing
 RUN apt-get install -y httrack && \
+    git clone --depth=1 https://github.com/UndeadSec/SocialFish.git /opt/SocialFish && \
     git clone --depth=1 https://github.com/kgretzky/evilginx /opt/evilginx
 
 # DOS Tools
