@@ -146,6 +146,7 @@ RUN apt-get install -y sqlmap themole
 # Phishing
 RUN apt-get install -y httrack && \
     git clone --depth=1 https://github.com/UndeadSec/SocialFish.git /opt/SocialFish && \
+    git clone --depth=1 https://github.com/boxug/trape /opt/trape && \
     git clone --depth=1 https://github.com/kgretzky/evilginx /opt/evilginx
 
 # DOS Tools
