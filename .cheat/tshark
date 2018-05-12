@@ -22,5 +22,5 @@ tshark udp
 # Tshark trace incoming HTTP requests 
 tshark -i eth0 -R 'http.request'
 
-# Filter whit HTTP
+# Filter with HTTP
 tshark -r capture.pcap -Y’http’
