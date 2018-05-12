@@ -5,7 +5,7 @@ medusa -d
 medusa -M [module_name] -q
 
 # Test all passwords in password file against the admin user on the host
-# 192.168.1.20 via the SMB | SSH | MySQL | HTTP service 
+# 192.168.1.20 via the SMB | SSH | MySQL | HTTP service
 medusa -h 192.168.1.20 -u admin -P passwords.txt -M [smbnt | ssh | mssql | http]
 
 # To brute force 10 hosts and 5 users concurrently (using Medusa's parallel features)

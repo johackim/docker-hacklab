@@ -12,7 +12,7 @@ CREATE DATABASE owa CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 # Types of user permissions:
 
-# ALL PRIVILEGES - gives user full unrestricted access 
+# ALL PRIVILEGES - gives user full unrestricted access
 # CREATE - allows user to create new tables or databases
 # DROP - allows user to delete tables or databases
 # DELETE - allows user to delete rows from tables
@@ -45,7 +45,7 @@ SELECT CURRENT_USER();
 # To delete a table in the database
 DROP TABLE table_name;
 
-#To return all records from a particular table
+# To return all records from a particular table
 SELECT * FROM table_name;
 
 # To create a table (Users table used as example)
@@ -57,7 +57,7 @@ CREATE TABLE Users (
 	PRIMARY KEY (username)
 );
 
-# To disable general logging 
+# To disable general logging
 set global general_log=0;
 
 # To launch MySQL in safe mode

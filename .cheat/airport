@@ -21,6 +21,6 @@ airport (INTERFACE) sniff CHANNEL
 # Checking file's size
 du -hs /tmp/*.cap
 
-# Cracking with Aircrack. 
+# Cracking with Aircrack.
 # Attack mode: 1/WEP, 2/WPA-PSK
 aircrack-ng -a 1 -b $BSSID $CAP_FILE

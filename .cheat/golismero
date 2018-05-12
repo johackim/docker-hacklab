@@ -1,9 +1,9 @@
-#Golismero Cheat Sheet
-#Jason Soto <www.jsitech.com>
+# Golismero Cheat Sheet
+# Jason Soto <www.jsitech.com>
 
-#GoLismero is an open source framework for security testing. It's currently geared towards web security
+# GoLismero is an open source framework for security testing. It's currently geared towards web security
 
-#Syntax 
+# Syntax
 
 golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NAME] [--ui-mode MODE] [-v] [-q] [--color]
                     [--no-color] [--audit-name NAME] [-db DATABASE] [-nd] [-i FILENAME] [-ni] [-o FILENAME] [-no] [--full] [--brief]
@@ -14,7 +14,7 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
                     [--plugins-folder PATH]
                     COMMAND [TARGET [TARGET ...]]
 
-#available commands
+# available commands
 
   SCAN:
     Perform a vulnerability scan on the given targets. Optionally import
@@ -56,15 +56,15 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
     Update GoLismero to the latest version. Requires Git to be installed and
     available in the PATH. This command takes no arguments.
 
-#positional arguments
+# positional arguments
   COMMAND               action to perform
   TARGET                zero or more arguments, meaning depends on command
 
-#optional arguments
+# optional arguments
   -h                    show this help message and exit
   --help                show this help message and exit
 
-#main options
+# main options
   -f FILE, --file FILE  load a list of targets from a plain text file
   --config FILE         global configuration file
   --user-config FILE    per-user configuration file
@@ -76,7 +76,7 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
   --color               use colors in console output
   --no-color            suppress colors in console output
 
-#audit options
+# audit options
   --audit-name NAME     customize the audit name
   -db DATABASE, --audit-db DATABASE
                         specify a database filename
@@ -85,14 +85,14 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
                         read results from external tools right before the audit
   -ni, --no-input       do not read results from external tools
 
-#report options
+# report options
   -o FILENAME, --output FILENAME
                         write the results of the audit to this file (use - for stdout)
   -no, --no-output      do not output the results
   --full                produce fully detailed reports
   --brief               report only the highlights
 
-#network options
+# network options
   --allow-subdomains    include subdomains in the target scope
   --forbid-subdomains   do not include subdomains in the target scope
   --parent              include parent folders in the target scope
@@ -123,7 +123,7 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
   --persistent-cache    use a persistent network cache [default]
   --volatile-cache      use a volatile network cache
 
-#plugin options:
+# plugin options:
   -a PLUGIN:KEY=VALUE, --plugin-arg PLUGIN:KEY=VALUE
                         pass an argument to a plugin
   -e PLUGIN, --enable-plugin PLUGIN
@@ -134,13 +134,13 @@ golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NA
   --plugin-timeout N    timeout in seconds for the execution of a plugin
   --plugins-folder PATH
                         cheacustomize the location of the plugins
-#Example
-#Show Available Plugins
+# Example
+# Show Available Plugins
 $ ./golismero.py plugins
 
 
-#Available Plugins
-#Import plugins
+# Available Plugins
+# Import plugins
 
 csv_nikto:
     Import the results of a Nikto scan in CSV format.
@@ -157,7 +157,7 @@ xml_openvas:
 xml_sslscan:
     Import the results of an SSLScan run in XML format.
 
-#Recon plugins
+# Recon plugins
 
 dns:
     DNS resolver plugin.
@@ -198,7 +198,7 @@ spiderfoot:
 theharvester:
     Integration with theHarvester: https://github.com/MarioVilas/theHarvester/
 
-#Scan plugins
+# Scan plugins
 
 brute_directories:
     Tries to discover hidden folders by brute force:
@@ -247,7 +247,7 @@ sslscan:
 zone_transfer:
     Detects and exploits DNS zone transfer vulnerabilities.
 
-#Attack plugins
+# Attack plugins
 
 heartbleed:
     Test for the CVE-2014-0160 vulnerability (aka "heartbleed attack").
@@ -259,7 +259,7 @@ sqlmap:
 xsser:
     Integration with XSSer: http://xsser.sourceforge.net/
 
-#Report plugins
+# Report plugins
 
 bson:
     BSON (Binary JSON) output for programmatic access.
@@ -301,7 +301,7 @@ xml:
 yaml:
     YAML output for programmatic access.
 
-#UI plugins
+# UI plugins
 
 console:
     Console user interface. This is the default.
@@ -309,37 +309,37 @@ console:
 disabled:
     Empty user interface. Used by some unit tests.
 
-#Examples
-#scan a website and show the results on screen:
+# Examples
+# scan a website and show the results on screen:
 $./golismero.py scan http://www.example.com
 
-#grab Nmap results, scan all hosts found and write an HTML report:
+# grab Nmap results, scan all hosts found and write an HTML report:
 $./golismero.py scan -i nmap_output.xml -o report.html
 
-#grab results from OpenVAS and show them on screen, but don't scan anything:
+# grab results from OpenVAS and show them on screen, but don't scan anything:
 $./golismero.py import -i openvas_output.xml
 
-#show information on plugins:
+# show information on plugins:
 $./golismero.py info [plugin_name]
 $./golismero.py info theharvester
 $./golismero.py info plecost
 $./golismero.py info brute*
 
-#Scan using specific plugins
+# Scan using specific plugins
 $./golismero.py scan [domain] -e <plugin>
 $./golismero.py scan example.com -e plecost
 $./golismero.py scan example.com -e plecost -e theharvester
 
-#Scan using multiple plugins with wildcard
+# Scan using multiple plugins with wildcard
 $./golismero scan example.com -e brute*
 
-#Scanning and generating a HTML report
+# Scanning and generating a HTML report
 $././golismero.py scan example.com -o example.html
 
-#dump the database from a previous scan:
+# dump the database from a previous scan:
 $./golismero.py dump -db example.db -o dump.sql
 
-#Add Shodan API Key to Golismero
+# Add Shodan API Key to Golismero
 $mkdir ~/.golismero
 $nano ~/.golismero/user.conf
 [shodan:Configuration]

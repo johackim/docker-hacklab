@@ -11,7 +11,7 @@ ps -aufoouser
 ps -eo pid,user,command
 
 # List the processes being run by a particular set of usernames
-ps -f -u username1, username2, .... ,usernameN 
+ps -f -u username1, username2, .... ,usernameN
 
 # Display a list of processes with a particular parent ID (5589)
 # Note that when a process is launched it may spawn several other sub processes which all share a common parent process ID

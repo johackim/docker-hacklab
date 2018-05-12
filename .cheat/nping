@@ -1,8 +1,8 @@
 # To perform a TCP connect() (handshake) with a host
 nping --tcp-connect [target host]
 
-# To perform a TCP connect() 
-nping --tcp-connect [target host] [target host] [target host] 
+# To perform a TCP connect()
+nping --tcp-connect [target host] [target host] [target host]
 
 # To attempt a TCP handshake on a port range (1-80)
 nping --tcp-connect [target host] -p1-80 -c 1
@@ -14,13 +14,13 @@ nping --udp [target host] -p 53 --data-length 100
 nping --tcp [target host] --rate 50 -c 500
 
 # To send an ARP request to a particular host
-ping --arp [target host] 
+ping --arp [target host]
 
 # To send ARP requests to all hosts in the 192.168.1.0/24 network
-nping --arp 192.168.1.0/24 
+nping --arp 192.168.1.0/24
 
 # To send an ICMP echo request
-nping [target host] --icmp --icmp-type echo 
+nping [target host] --icmp --icmp-type echo
 
 # To send an ICMP echo reply
 nping google.com --icmp --icmp-type echo-reply
