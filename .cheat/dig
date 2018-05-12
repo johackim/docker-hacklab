@@ -2,7 +2,7 @@
 dig domain]
 
 # To just get the ip address
-dig [domain] +nocomments +noauthority +noadditional +nostats 
+dig [domain] +nocomments +noauthority +noadditional +nostats
 OR
 dig [domain] +noall +answer
 OR
@@ -18,7 +18,7 @@ dig -t ANY [domain] [options]
 OR
 dig [domain] ANY [options]
 
-# To do a DNS reverse look up 
+# To do a DNS reverse look up
 dig -x [ip address] +short
 
 # To use a specific DNS server

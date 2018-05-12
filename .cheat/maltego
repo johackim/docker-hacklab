@@ -1,5 +1,5 @@
 # To do a basic footprinting of a domain
-Machines>"Run Machine">"Footprint L1" 
+Machines>"Run Machine">"Footprint L1"
 
 # To do a footprinting and follow the every link of a domain
 Machines>"Run Machine">"Footprint L2"

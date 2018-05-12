@@ -10,7 +10,7 @@ Capture>Stop
 # To start a session that will only capture packets destined for your device
 Capture>"Options...">[Uncheck "Use promiscuious mode on all interfaces"]>Start
 
-# To view all packets of a TCP/UDP/SSL stream 
+# To view all packets of a TCP/UDP/SSL stream
 [Right click packet]>"Follow <TCP/UDP/SSL> stream"
 
 # To manage decryption keys to decrypt encrypted streams

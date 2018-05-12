@@ -1,5 +1,5 @@
 # Jose Moruno Cadima <@sniferl4bs>
-# Nessus 
+# Nessus
 # SERVER
 nessusd [–c config-file] [-a address] [-p port-number] [-D] [-d]
 -c <config-file> -a <listen_on_address>

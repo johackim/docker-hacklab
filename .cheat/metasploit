@@ -13,7 +13,7 @@ show payloads
 # To set the payload for a selected exploit
 set payload <payload>
 
-# To set setting for a selected exploit 
+# To set setting for a selected exploit
 set <option> <value>
 
 # To run the exploit

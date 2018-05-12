@@ -7,15 +7,15 @@ enable
 # Short for, configure terminal
 conf t
 
-# Configure FastEthernet 0/0	
+# Configure FastEthernet 0/0
 (config)# interface fa0/0
 
-# Add ip to fa0/0	
+# Add ip to fa0/0
 (config-if)# ip addr 0.0.0.0 255.255.255.255
 
-# Add ip to fa0/0	
+# Add ip to fa0/0
 (config-if)# ip addr 0.0.0.0 255.255.255.255
-	
+
 # Configure vty line
 (config-if)# line vty 0 4
 
@@ -30,7 +30,7 @@ conf t
 
 # Show sartup config
 # show startup-config
-	
+
 # show cisco IOS version
 # show version
 
@@ -45,7 +45,7 @@ conf t
 
 # Show routes
 # show ip route
-	
+
 Show access lists
 # show access-lists
 

