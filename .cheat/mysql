@@ -45,7 +45,7 @@ SELECT CURRENT_USER();
 # To delete a table in the database
 DROP TABLE table_name;
 
-#To return all records from a particular table
+# To return all records from a particular table
 SELECT * FROM table_name;
 
 # To create a table (Users table used as example)

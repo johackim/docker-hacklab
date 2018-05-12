@@ -1,7 +1,7 @@
 # Jose Moruno Cadima <@sniferl4bs>
-#Fuente: José A. Guasch SecurityByDefault
+# Fuente: José A. Guasch SecurityByDefault
 
-#BASE OPTIONS
+# BASE OPTIONS
 -q --quiet -v --version
 -I --interface -V --verbose
 -D --debug
@@ -16,7 +16,7 @@
 --flood as fast as posible
 
 
-#COMMON OPTIONS
+# COMMON OPTIONS
 -d --data datasize packet body size
 -E --file insert into packet’s data
 -e --sign signature lenght
@@ -30,7 +30,7 @@
 --tr-no-rtt dont show RTT
 --tcpexitcode set exit code to tcpth_flag of last packet
 
-#IP RELATED OPTIONS
+# IP RELATED OPTIONS
 -a --spoof hostname
 --rand-source
 --rand-dest host accepts X as wildcard
@@ -47,7 +47,7 @@
 -m --mtu value
 -o --tos set type of service, on hex
 
-#ICMP RELATED OPTIONS
+# ICMP RELATED OPTIONS
 -C --icmptype default [echo]
 -K --icmpcode ICMP code [0]
 --icmp-ipver ip version [4]
