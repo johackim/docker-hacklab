@@ -4,7 +4,7 @@ cewl -w <file> <url>
 # To spider a site and follow links to other sites
 cewl -o <url>
 
-# To spider a site using a given user-agent 
+# To spider a site using a given user-agent
 cewl -u <user-agent> <url>
 
 # To spider a site for a given depth and minimum word length

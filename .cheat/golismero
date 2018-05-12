@@ -3,7 +3,7 @@
 
 # GoLismero is an open source framework for security testing. It's currently geared towards web security
 
-# Syntax 
+# Syntax
 
 golismero.py [-h] [--help] [-f FILE] [--config FILE] [--user-config FILE] [-p NAME] [--ui-mode MODE] [-v] [-q] [--color]
                     [--no-color] [--audit-name NAME] [-db DATABASE] [-nd] [-i FILENAME] [-ni] [-o FILENAME] [-no] [--full] [--brief]

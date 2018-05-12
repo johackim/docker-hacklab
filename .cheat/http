@@ -36,7 +36,7 @@ Form-Based Authentication
 406 - Found				416 - Temporary Redirect
 407 - See Other				417 - Permanent Redirect
 408 - Found				418 - Temporary Redirect
-409 - See Other			
+409 - See Other
 
 # Server Error Response Codes (5xx)
 500 - Internal Server Error		508 - Loop Detected
@@ -46,4 +46,4 @@ Form-Based Authentication
 504 - Gateway Timeout			550 - Permission Denied
 505 - HTTP Ver Not Supported		551 - Option Not Supported
 506 - Variant Also Negotiates		598 - Nework Read Timeout Error
-507 - Insufficient Storage		599 - Network Connect Timeout Error		
+507 - Insufficient Storage		599 - Network Connect Timeout Error

@@ -50,7 +50,7 @@ $ vol.py pstree -f mem.img
 $ vol.py malfind --dump-dir ./output_dir
 
 # ldrmodules
-$ vol.py ldrmodules -p 868 -v           
+$ vol.py ldrmodules -p 868 -v
 ===============================================================
 # Check for Signs of a Rootkit
 # Examples
@@ -105,7 +105,7 @@ $ vol.py svcscan
    -r          Dump DLLs matching REGEX name
    --dump-dir  Directory to save extracted files
 
-$ vol.py dlldump --dump-dir ./output –r metsrv 
+$ vol.py dlldump --dump-dir ./output –r metsrv
 
 # Extract kernel drivers
 # moddump
@@ -121,13 +121,13 @@ $ vol.py moddump --dump-dir ./output –r gaopdx
    -o         Specify process by physical memory offset
    --dump-dir Directory to save extracted files
 
-$ vol.py procmemdump --dump-dir ./output –p 868 
+$ vol.py procmemdump --dump-dir ./output –p 868
 
 # Dump every memory section into a file
    -p         Dump memory sections from these PIDs
    --dump-dir Directory to save extracted files
 
-$ vol.py memdump –dump-dir ./output –p 868 
+$ vol.py memdump –dump-dir ./output –p 868
 ================================================================
 # Review Network Artifacts
 # Examples
@@ -194,7 +194,7 @@ $ vol.py imagecopy -f Memory.dmp -O memdmp.img --profile=Win7SP1x64
     ‐‐output‐file Optional file to write output (v2.1)
     ‐‐output=body bodyfile format for mactime (v2.3)
 
-$ vol.py -f mem.img timeliner --output-file out.csv --profile=Win7SP1x86 
+$ vol.py -f mem.img timeliner --output-file out.csv --profile=Win7SP1x86
 
 =====================================================================
 # Registry Analysis Volatility Plugins
@@ -215,7 +215,7 @@ $ vol.py userassist
 # hashdump - Dump user NTLM and Lanman hashes
   -y Virtual offset of SYSTEM registry hive (from hivelist)
   -s Virtual offset of SAM registry hive (from hivelist)
-$ vol.py hashdump –y 0x8781c008 –s 0x87f6b9c8 
+$ vol.py hashdump –y 0x8781c008 –s 0x87f6b9c8
 ========================================================================
 
 

@@ -69,13 +69,13 @@ nmap -T5 --min-parallelism=50 -n --script "ssl-heartbleed" -pT:443 127.0.0.1
 nmap -d ...
 
 # Find subdomains of a website
-nmap -Pn --script=dns-brute <host> 
+nmap -Pn --script=dns-brute <host>
 
 # Find mysql version
-nmap -Pn --script=mysql-info <host> 
+nmap -Pn --script=mysql-info <host>
 
 # Display directory structure
-nmap -Pn --script=http-sitenap-generator <host> 
+nmap -Pn --script=http-sitenap-generator <host>
 
 # Display vuln
 nmap -sV --script=vulscan <host>
