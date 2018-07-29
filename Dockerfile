@@ -69,7 +69,7 @@ WORKDIR /root
 #################
 
 # Footprinting / Information-Gathering / OSINT / Fingerprint
-RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover
+RUN apt-get install -y whois dnsutils dnsmap nmap theharvester dmitry knockpy netdiscover fierce
 RUN git clone --depth=1 https://github.com/1N3/Sn1per /opt/Sn1per && cd /opt/Sn1per && chmod +x install.sh && ./install.sh
 RUN curl -o /usr/local/bin/googler https://raw.githubusercontent.com/jarun/googler/v2.3/googler && chmod +x /usr/local/bin/googler
 RUN pip install shodan
@@ -84,6 +84,7 @@ RUN git clone --depth=1 https://github.com/maurosoria/dirsearch /opt/dirsearch &
     git clone --depth=1 https://github.com/vesche/scanless /opt/scanless && \
     git clone --depth=1 https://github.com/techgaun/github-dorks /opt/github-dorks && \
     git clone --depth=1 https://github.com/aboul3la/Sublist3r /opt/Sublist3r && \
+    git clone --depth=1 https://github.com/subfinder/subfinder && \
     git clone --depth=1 https://github.com/TheRook/subbrute /opt/subbrute && \
     git clone --depth=1 https://github.com/utiso/dorkbot /opt/dorkbot && \
     git clone --depth=1 https://github.com/DataSploit/datasploit /opt/datasploit && \
@@ -278,7 +279,8 @@ RUN git clone --depth=1 https://github.com/Ne0nd0g/merlin /opt/merlin && \
     git clone --depth=1 https://github.com/zerosum0x0/koadic /opt/koadic
 
 # botnet
-RUN git clone --depth=1 https://github.com/sweetsoftware/Ares /opt/Ares
+RUN git clone --depth=1 https://github.com/sweetsoftware/Ares /opt/Ares && \
+    git clone --depth=1 https://github.com/colental/byob /opt/byob
 
 # Keylogger
 RUN git clone --depth=1 https://github.com/tiagorlampert/sAINT /opt/sAINT
