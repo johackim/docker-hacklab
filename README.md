@@ -85,11 +85,17 @@ Other resources
 - https://www.punycoder.com/
 - https://securityonline.info
 - http://hardsploit.io
+- https://weleakinfo.com/
 - https://gexos.github.io/Hacking-Tools-Repository/
 - https://penetration-testing.zeef.com/jeroen.rijken
 - http://www.funinformatique.com/google-dorks-hackez-requete-google/
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
+- https://ctf365.com/
+
+Github repositories
+---
+
 - https://github.com/cSploit/android
 - https://github.com/enaqx/awesome-pentest
 - https://github.com/Hack-with-Github/Awesome-Hacking
@@ -100,6 +106,10 @@ Other resources
 - https://github.com/danielmiessler/SecLists
 - https://github.com/We5ter/Scanners-Box
 - https://github.com/vitalysim/Awesome-Hacking-Resources
+
+Youtube Channels
+---
+
 - https://www.youtube.com/user/Hak5Darren/videos
 - https://www.youtube.com/user/DEFCONConference/videos
 - https://www.youtube.com/user/BlackHatOfficialYT/videos
