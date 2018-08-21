@@ -92,6 +92,7 @@ Other resources
 - https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/
 - http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet
 - https://ctf365.com/
+- https://www.codebashing.com/
 
 Github repositories
 ---
@@ -106,6 +107,7 @@ Github repositories
 - https://github.com/danielmiessler/SecLists
 - https://github.com/We5ter/Scanners-Box
 - https://github.com/vitalysim/Awesome-Hacking-Resources
+- https://github.com/infosecn1nja/Red-Teaming-Toolkit
 
 Youtube Channels
 ---
@@ -114,11 +116,12 @@ Youtube Channels
 - https://www.youtube.com/user/DEFCONConference/videos
 - https://www.youtube.com/user/BlackHatOfficialYT/videos
 - https://www.youtube.com/user/JackkTutorials/videos
-- https://www.youtube.com/channel/UCO51Z4c1R8EPHZioGwgBmDw/videos
-- https://www.youtube.com/playlist?list=PLkRo97mCIn9lgvE7AskNsmwJVOlJX2zaI
-- https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
 - https://www.youtube.com/user/gaytony10/playlists
 - https://www.youtube.com/user/bhargavtandel/videos
+- https://www.youtube.com/channel/UC286ntgASMskhPIJQebJVvA/videos
+- https://www.youtube.com/channel/UCO51Z4c1R8EPHZioGwgBmDw/videos
+- https://www.youtube.com/channel/UC0ZTPkdxlAKf-V33tqXwi3Q/videos
+- https://www.youtube.com/playlist?list=PLkRo97mCIn9lgvE7AskNsmwJVOlJX2zaI
 
 License
 ---
