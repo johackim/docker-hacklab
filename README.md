@@ -104,6 +104,7 @@ Github repositories
 - https://github.com/carpedm20/awesome-hacking
 - https://github.com/brannondorsey/wifi-cracking
 - https://github.com/gchq/CyberChef
+- [Darkmoon](https://github.com/ASCIT31/Dark-Moon) - an open source (GPL-3.0) autonomous AI penetration testing platform for web, API, Active Directory and Kubernetes.
 - https://github.com/danielmiessler/SecLists
 - https://github.com/We5ter/Scanners-Box
 - https://github.com/vitalysim/Awesome-Hacking-Resources
