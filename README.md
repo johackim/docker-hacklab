@@ -61,9 +61,10 @@ Search Engines
 Doxing / OSINT
 ---
 
-- http://www.peekyou.com/
+- https://www.peekyou.com/
 - https://pipl.com/
 - https://iplogger.org/
+- https://github.com/Xquik-dev/x-twitter-scraper
 
 Other resources
 ---
